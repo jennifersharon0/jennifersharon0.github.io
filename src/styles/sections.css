@@ -1,0 +1,54 @@
+/* ==========================================================================
+   Structure commune des sections
+   ========================================================================== */
+
+.section {
+  padding-block: clamp(64px, 9vw, 112px);
+}
+
+.section + .section {
+  border-top: 1px solid var(--line);
+}
+
+.section-alt {
+  background: var(--bg-alt);
+}
+
+.section-heading {
+  margin-bottom: clamp(32px, 5vw, 56px);
+  max-width: 760px;
+}
+
+.section-index {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--accent);
+}
+
+.section-rule {
+  display: block;
+  width: 48px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.6;
+}
+
+.section-heading h2 {
+  margin-top: 14px;
+  font-size: clamp(2rem, 4.4vw, 3.1rem);
+}
+
+.section-intro {
+  margin-top: 16px;
+  color: var(--ink-2);
+  max-width: 64ch;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}

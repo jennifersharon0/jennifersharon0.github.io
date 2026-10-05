@@ -1,0 +1,12 @@
+node_modules/
+dist/
+dist-ssr/
+*.log
+.DS_Store
+.vscode/
+
+# Documents sources de travail : non publiés.
+# (Le CV et la photo publiés sont les copies optimisées dans public/.)
+Recapitulatif_Projets_Annee.docx
+Photo_Profil.png
+Cv_PFE.pdf

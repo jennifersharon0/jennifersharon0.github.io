@@ -1,0 +1,36 @@
+.site-footer {
+  margin-top: clamp(64px, 10vw, 120px);
+  border-top: 1px solid var(--line);
+  background: var(--bg-alt);
+}
+
+.footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding-block: 40px;
+}
+
+.footer-name {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+}
+
+.footer-meta {
+  margin-top: 4px;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.footer-built {
+  margin-top: 4px;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.footer-actions {
+  display: flex;
+  gap: 8px;
+}

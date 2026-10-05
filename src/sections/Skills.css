@@ -1,0 +1,106 @@
+.skills-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 28px;
+  margin-bottom: 28px;
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+
+.skills-legend li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.legend-mark {
+  display: inline-block;
+  flex: none;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+
+.legend-mark.is-used,
+.is-used .legend-mark {
+  background: var(--accent);
+}
+
+.legend-mark.is-listed,
+.is-listed .legend-mark {
+  border: 1.5px solid var(--muted);
+  background: transparent;
+}
+
+.skills-grid {
+  columns: 3;
+  column-gap: 16px;
+}
+
+.skill-group {
+  break-inside: avoid;
+  margin-bottom: 16px;
+  padding: 24px 24px 16px;
+}
+
+.skill-group h3 {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line);
+}
+
+.skill-group li {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-block: 10px;
+}
+
+.skill-group li + li {
+  border-top: 1px dashed var(--line);
+}
+
+.skill-name {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.is-listed .skill-name {
+  color: var(--ink-2);
+}
+
+.skill-note,
+.skill-projects {
+  padding-left: 19px;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.skill-projects a {
+  color: var(--muted);
+  text-decoration-color: var(--line-strong);
+}
+
+.skill-projects a:hover {
+  color: var(--accent);
+  text-decoration-color: currentColor;
+}
+
+@media (max-width: 1000px) {
+  .skills-grid {
+    columns: 2;
+  }
+}
+
+@media (max-width: 640px) {
+  .skills-grid {
+    columns: 1;
+  }
+}

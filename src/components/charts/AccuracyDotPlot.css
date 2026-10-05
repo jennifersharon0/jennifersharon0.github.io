@@ -1,0 +1,223 @@
+.dotplot {
+  margin-top: 28px;
+  padding: clamp(20px, 3vw, 28px);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.dotplot figcaption {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px 24px;
+}
+
+.dotplot-title {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.dotplot-legend {
+  display: flex;
+  gap: 18px;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+.dotplot-legend li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dp-mark {
+  display: block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex: none;
+}
+
+.dp-mark.is-learned {
+  background: var(--chart-accent);
+  box-shadow: 0 0 0 2px var(--surface);
+}
+
+.dp-mark.is-baseline {
+  background: var(--surface);
+  border: 2px solid var(--chart-base);
+}
+
+.dotplot-body {
+  margin-top: 24px;
+}
+
+.dp-row {
+  display: grid;
+  grid-template-columns: minmax(120px, 0.9fr) minmax(0, 2.2fr);
+  align-items: center;
+  gap: 16px;
+  min-height: 52px;
+}
+
+.dp-row + .dp-row:not(.dp-axis) {
+  border-top: 1px dashed var(--chart-grid);
+}
+
+.dp-label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.9rem;
+  line-height: 1.3;
+}
+
+.dp-dims {
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+
+.dp-track {
+  position: relative;
+  height: 52px;
+  margin-right: 56px;
+}
+
+.dp-grid {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--chart-grid);
+}
+
+.dp-point {
+  position: absolute;
+  top: 50%;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  margin-left: -14px;
+  transform: translateY(-50%);
+  cursor: default;
+}
+
+.dp-value {
+  font-size: 0.8rem;
+  color: var(--ink);
+}
+
+.dp-tooltip {
+  position: absolute;
+  bottom: calc(100% + 4px);
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px 12px;
+  min-width: 190px;
+  background: var(--ink);
+  color: var(--bg);
+  border-radius: var(--radius-s);
+  font-size: 0.8rem;
+  line-height: 1.4;
+  white-space: nowrap;
+  display: none;
+  pointer-events: none;
+}
+
+/* Ancrée du côté où il reste de la place, pour ne jamais sortir de l'écran */
+.dp-tooltip.is-left {
+  left: auto;
+  right: 0;
+}
+
+.dp-tooltip.is-right {
+  left: 0;
+}
+
+.dp-point:hover .dp-tooltip {
+  display: flex;
+}
+
+.dp-point:hover .dp-mark {
+  transform: scale(1.2);
+}
+
+.dp-mark {
+  transition: transform 120ms var(--ease);
+}
+
+.dp-axis {
+  min-height: 0;
+}
+
+.dp-axis .dp-track {
+  height: 22px;
+}
+
+.dp-tick {
+  position: absolute;
+  top: 4px;
+  transform: translateX(-50%);
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+
+.dotplot-caption {
+  margin-top: 16px;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+.dotplot-table {
+  margin-top: 12px;
+  font-size: 0.88rem;
+}
+
+.dotplot-table summary {
+  cursor: pointer;
+  color: var(--accent);
+  width: fit-content;
+}
+
+.dotplot-table table {
+  width: 100%;
+  margin-top: 12px;
+  border-collapse: collapse;
+}
+
+.dotplot-table th,
+.dotplot-table td {
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+}
+
+.dotplot-table thead th {
+  font-weight: 600;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.dotplot-table tbody th {
+  font-weight: 400;
+}
+
+@media (max-width: 560px) {
+  .dp-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding-top: 8px;
+  }
+
+  .dp-axis > span:first-child {
+    display: none;
+  }
+
+  .dp-track {
+    margin-right: 48px;
+  }
+}

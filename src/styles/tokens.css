@@ -1,0 +1,101 @@
+/* ==========================================================================
+   Design tokens — thème clair par défaut, thème sombre via préférence système
+   ou choix explicite (data-theme sur <html>).
+   Contrastes vérifiés (WCAG AA) : texte secondaire ≥ 5:1, accent ≥ 6,7:1.
+   ========================================================================== */
+
+:root {
+  --font-display: 'Fraunces Variable', 'Georgia', serif;
+  --font-sans: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'Cascadia Code', Consolas, monospace;
+
+  --container: 1160px;
+  --gutter: clamp(16px, 4vw, 32px);
+  --header-h: 64px;
+  --radius-s: 6px;
+  --radius: 12px;
+  --radius-l: 18px;
+
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --dur: 200ms;
+
+  color-scheme: light;
+  --bg: #f5f3ee;
+  --bg-alt: #efece5;
+  --surface: #fffdf9;
+  --surface-2: #f9f7f2;
+  --ink: #15171c;
+  --ink-2: #3a3f4a;
+  --muted: #5f6572;
+  --line: #e1ddd3;
+  --line-strong: #cbc6ba;
+  --accent: #2f45c9;
+  --accent-hover: #2337a8;
+  --accent-ink: #ffffff;
+  --accent-soft: #e7e9f8;
+  --ok: #1d7a46;
+  --dot: rgba(21, 23, 28, 0.16);
+  --dot-accent: rgba(47, 69, 201, 0.55);
+  --shadow: 0 1px 2px rgba(21, 23, 28, 0.04), 0 8px 24px -12px rgba(21, 23, 28, 0.12);
+  --shadow-hover: 0 2px 4px rgba(21, 23, 28, 0.05), 0 18px 40px -16px rgba(21, 23, 28, 0.22);
+  --header-bg: rgba(245, 243, 238, 0.82);
+
+  /* Graphiques — palette validée (séparation daltonisme, contraste ≥ 3:1) */
+  --chart-accent: #2f45c9;
+  --chart-base: #7b818d;
+  --chart-grid: #e6e2d9;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    color-scheme: dark;
+    --bg: #0e1014;
+    --bg-alt: #121419;
+    --surface: #15181e;
+    --surface-2: #1a1d24;
+    --ink: #eceae4;
+    --ink-2: #c6c8ce;
+    --muted: #9298a5;
+    --line: #262a33;
+    --line-strong: #353a45;
+    --accent: #8c9bff;
+    --accent-hover: #a7b3ff;
+    --accent-ink: #0e1014;
+    --accent-soft: #1c2140;
+    --ok: #4ade80;
+    --dot: rgba(236, 234, 228, 0.13);
+    --dot-accent: rgba(140, 155, 255, 0.6);
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px -12px rgba(0, 0, 0, 0.5);
+    --shadow-hover: 0 2px 4px rgba(0, 0, 0, 0.35), 0 18px 40px -16px rgba(0, 0, 0, 0.7);
+    --header-bg: rgba(14, 16, 20, 0.8);
+    --chart-accent: #7183f0;
+    --chart-base: #6e7383;
+    --chart-grid: #262a33;
+  }
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #0e1014;
+  --bg-alt: #121419;
+  --surface: #15181e;
+  --surface-2: #1a1d24;
+  --ink: #eceae4;
+  --ink-2: #c6c8ce;
+  --muted: #9298a5;
+  --line: #262a33;
+  --line-strong: #353a45;
+  --accent: #8c9bff;
+  --accent-hover: #a7b3ff;
+  --accent-ink: #0e1014;
+  --accent-soft: #1c2140;
+  --ok: #4ade80;
+  --dot: rgba(236, 234, 228, 0.13);
+  --dot-accent: rgba(140, 155, 255, 0.6);
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px -12px rgba(0, 0, 0, 0.5);
+  --shadow-hover: 0 2px 4px rgba(0, 0, 0, 0.35), 0 18px 40px -16px rgba(0, 0, 0, 0.7);
+  --header-bg: rgba(14, 16, 20, 0.8);
+  --chart-accent: #7183f0;
+  --chart-base: #6e7383;
+  --chart-grid: #262a33;
+}

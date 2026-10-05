@@ -1,0 +1,265 @@
+.hero {
+  padding-top: clamp(40px, 7vw, 88px);
+  padding-bottom: clamp(48px, 7vw, 80px);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.85fr);
+  gap: clamp(40px, 6vw, 88px);
+  align-items: center;
+}
+
+.availability {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 14px 6px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  font-size: 0.85rem;
+  color: var(--ink-2);
+}
+
+.availability-dot {
+  position: relative;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--ok);
+  flex: none;
+}
+
+.availability-dot::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 1px solid var(--ok);
+  opacity: 0;
+  animation: pulse 2.4s var(--ease) infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+.hero-name {
+  margin-top: 28px;
+  font-size: clamp(2.9rem, 7.4vw, 5.6rem);
+  font-weight: 400;
+  line-height: 0.98;
+  letter-spacing: -0.03em;
+}
+
+.hero-name span {
+  display: block;
+  font-style: italic;
+  color: var(--accent);
+}
+
+.hero-domain {
+  margin-top: 26px;
+  font-size: clamp(0.95rem, 1.6vw, 1.1rem);
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.hero-domain span {
+  color: var(--accent);
+}
+
+.hero-role {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 0.97rem;
+}
+
+.hero-headline {
+  margin-top: 28px;
+  max-width: 30ch;
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 2.4vw, 1.75rem);
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+.hero-lead {
+  margin-top: 14px;
+  max-width: 60ch;
+  color: var(--ink-2);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.hero-social {
+  display: flex;
+  gap: 8px;
+  margin-left: 4px;
+}
+
+/* ---------- Portrait et trame 28 × 28 (clin d'œil aux images MNIST) ---------- */
+
+.hero-visual {
+  position: relative;
+  justify-self: end;
+  width: 100%;
+  max-width: 400px;
+}
+
+.dot-field {
+  position: absolute;
+  inset: -28px -28px auto auto;
+  width: 100%;
+  aspect-ratio: 1;
+  background-image: radial-gradient(circle, var(--dot) 1.3px, transparent 1.8px);
+  background-size: calc(100% / 28) calc(100% / 28);
+  -webkit-mask-image: radial-gradient(circle at 70% 30%, #000 0%, #000 35%, transparent 72%);
+  mask-image: radial-gradient(circle at 70% 30%, #000 0%, #000 35%, transparent 72%);
+  pointer-events: none;
+}
+
+.dot-field::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, var(--dot-accent) 1.6px, transparent 2.1px);
+  background-size: inherit;
+  -webkit-mask-image: radial-gradient(circle at 82% 18%, #000 0%, transparent 26%);
+  mask-image: radial-gradient(circle at 82% 18%, #000 0%, transparent 26%);
+}
+
+.hero-visual picture {
+  position: relative;
+  display: block;
+}
+
+.portrait {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: var(--radius-l);
+  box-shadow: var(--shadow-hover);
+  background: var(--bg-alt);
+}
+
+/* ---------- Résultats clés ---------- */
+
+.hero-facts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: clamp(48px, 7vw, 80px);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.hero-facts li + li {
+  border-left: 1px solid var(--line);
+}
+
+.fact {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  height: 100%;
+  padding: 24px 48px 24px 24px;
+  color: var(--ink);
+  text-decoration: none;
+  transition: background-color var(--dur) var(--ease);
+}
+
+.hero-facts li:first-child .fact {
+  padding-left: 0;
+}
+
+.fact:hover {
+  color: var(--ink);
+  background: var(--surface-2);
+}
+
+.fact-value {
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  font-weight: 500;
+  color: var(--accent);
+  line-height: 1.1;
+}
+
+.fact-label {
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.fact-arrow {
+  position: absolute;
+  right: 20px;
+  top: 28px;
+  width: 16px;
+  height: 16px;
+  color: var(--muted);
+  transition:
+    transform var(--dur) var(--ease),
+    color var(--dur) var(--ease);
+}
+
+.fact:hover .fact-arrow {
+  transform: translateX(3px);
+  color: var(--accent);
+}
+
+@media (max-width: 860px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-visual {
+    grid-row: 1;
+    justify-self: start;
+    max-width: 200px;
+    margin: 12px 0 0 0;
+  }
+
+  .dot-field {
+    inset: -18px -40px auto auto;
+  }
+
+  .hero-name {
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 720px) {
+  .hero-facts {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-facts li + li {
+    border-left: 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .fact,
+  .hero-facts li:first-child .fact {
+    padding: 18px 40px 18px 0;
+  }
+
+  .fact-arrow {
+    right: 4px;
+  }
+}
