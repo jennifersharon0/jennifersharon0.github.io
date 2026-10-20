@@ -11,13 +11,13 @@ export const leyendaComputerVision: Project = {
   links: [],
   content: {
     fr: {
-      title: 'Leyenda — pipeline de computer vision : tri, restauration et légendage d’images',
+      title: 'Leyenda, un pipeline de computer vision pour trier, restaurer et légender des images',
       shortTitle: 'Computer vision Leyenda',
       summary:
         "Trois modèles enchaînés en un pipeline réutilisable : un CNN qui trie 41 000 images numérisées à 92,8 %, un UNet qui gagne 6,3 dB de PSNR sans image de référence, et un modèle de légendage avec attention entraîné sur les 123 000 images de MS COCO.",
       category: 'Deep Learning · Computer vision · NLP',
-      context: 'Projet académique · CESI · équipe de 4 · fin septembre – octobre 2026 · client fictif TouNum',
-      cardResult: 'CNN 92,8 % (5 classes) · UNet +6,3 dB de PSNR · BLEU-4 de 0,271',
+      context: 'Projet académique · CESI · équipe de 4 · de fin septembre à octobre 2026 · client fictif TouNum',
+      cardResult: '92,8 % d’accuracy en 5 classes, +6,3 dB de PSNR en restauration et un BLEU-4 de 0,271 en légendage.',
       highlights: [
         'Tri de 41 000 images en 5 classes par un CNN entraîné de zéro, avec un seuil de confiance qui automatise 84 % des cas.',
         'Restauration d’images sans version propre de référence : dégradation synthétique réaliste, UNet optimisé avec Optuna.',
@@ -38,18 +38,18 @@ export const leyendaComputerVision: Project = {
       ],
       approach: [
         {
-          title: '1. Livrable 1 — classification d’images numérisées',
+          title: '1. Livrable 1 : classer les images numérisées',
           points: [
             'Analyse exploratoire fichier par fichier (vrai format, mode couleur, dimensions, empreinte MD5, contraste des bords) : 25 fichiers dont l’extension ne correspondait pas au format réel, qui auraient interrompu l’entraînement.',
             'Prétraitement conçu contre les raccourcis : mise au carré par marges blanches plutôt que par étirement, pour que la forme de l’image ne trahisse pas sa classe, et rognage automatique des bandes de scan.',
             'Détection de 3 371 paires de quasi-doublons et retrait de 501 copies pour éviter toute fuite entre entraînement et test : 39 716 images saines, découpage stratifié 70 / 15 / 15.',
-            'Classification binaire photo / non-photo : CNN optimisé par Keras Tuner, 93,1 % d’accuracy, F1 de 0,933 et AUC de 0,983 avec seulement 28 257 paramètres ; avantage sur un autoencodeur supervisé confirmé par un test de McNemar (p ≈ 0,02).',
+            'Classification binaire photo / non-photo : CNN optimisé par Keras Tuner, 93,1 % d’accuracy, F1 de 0,933 et AUC de 0,983 avec seulement 28 257 paramètres ; avantage sur un autoencodeur supervisé confirmé par un test de McNemar (p proche de 0,02).',
             'Classification en cinq catégories : quatre modèles comparés à conditions identiques (CNN de référence, CNN optimisé par recherche aléatoire sur 8 hyperparamètres, classifieur sur encodeur figé, autoencodeur supervisé).',
             'Règle de décision par seuil de confiance, repérage d’images probablement mal étiquetées, estimation de l’empreinte carbone et démonstrateur Gradio.',
           ],
         },
         {
-          title: '2. Livrable 2 — restauration par autoencodeurs convolutifs',
+          title: '2. Livrable 2 : restaurer les photos avec des autoencodeurs convolutifs',
           points: [
             'Mesure des défauts jusqu’au pixel (canaux RGB et YCbCr, analyse de Fourier) ; estimation du bruit par deux méthodes indépendantes (ondelettes de Donoho et méthode d’Immerkaer, corrélation de Spearman de 0,81) et de la netteté par variance du Laplacien.',
             'Les 111 images les plus propres servent de références ; les 37 plus bruitées forment une étude de cas jamais vue à l’entraînement.',
@@ -59,12 +59,12 @@ export const leyendaComputerVision: Project = {
           ],
         },
         {
-          title: '3. Livrable 3 — légendage automatique sur MS COCO 2014',
+          title: '3. Livrable 3 : légender automatiquement les images de MS COCO 2014',
           points: [
             'Pipeline de bout en bout : vérification de chaque fichier avec Pillow, tri par le CNN du Livrable 1 (116 503 photos gardées, 6 784 écartées), puis débruitage par l’autoencodeur du Livrable 2 (UNet résiduel « aveugle », environ 29 dB à σ = 0,1, qui modifie très peu les images déjà propres).',
             'Prétraitement du texte : minuscules, suppression de la ponctuation, des chiffres, des légendes trop courtes et des doublons (582 531 légendes gardées) ; vocabulaire de 9 127 mots construit sur l’entraînement uniquement ; longueur maximale de 21 mots couvrant 99 % des légendes.',
             'Extraction de caractéristiques par EfficientNetB0 préentraîné sur ImageNet et figé (49 zones de 1 280 caractéristiques), choisi face à InceptionV3 : même BLEU-4 avec 4 fois moins de paramètres et des caractéristiques 2 fois moins lourdes ; stockage en float16 (14,6 Go) avec un calcul reprenable.',
-            'Architecture encodeur-décodeur : encodeur CNN (Dense 256), attention de Bahdanau qui choisit à chaque mot les zones de l’image à regarder, décodeur GRU (512 unités) préféré au LSTM pour ses 25 % de paramètres en moins à performance égale — environ 9,6 millions de paramètres.',
+            'Architecture encodeur-décodeur : encodeur CNN (Dense 256), attention de Bahdanau qui choisit à chaque mot les zones de l’image à regarder, décodeur GRU (512 unités) préféré au LSTM pour ses 25 % de paramètres en moins à performance égale. Le modèle compte environ 9,6 millions de paramètres.',
             'Entraînement par teacher forcing, perte d’entropie croisée masquée sur le padding, Adam avec gradient clipping, dropout, early stopping avec retour aux meilleurs poids et sauvegarde à chaque epoch (466 025 paires image-légende).',
             'Beam search (k = 3) implémenté, et visualisation des cartes d’attention mot par mot pour vérifier où le modèle regarde.',
           ],
@@ -72,7 +72,7 @@ export const leyendaComputerVision: Project = {
         {
           title: '4. Industrialisation',
           points: [
-            'Chaîne complète Livrable 1 → 2 → 3 sauvegardée et réutilisable sans le notebook : classe PipelineCaptioning, fichier pipeline_captioning.py généré automatiquement à partir des cellules du notebook (une seule version du code), configuration et poids.',
+            'La chaîne complète, du tri jusqu’au légendage, est sauvegardée et utilisable sans le notebook : une classe Python dédiée, un script généré automatiquement à partir des cellules du notebook pour ne garder qu’une seule version du code, la configuration et les poids.',
             'Rechargement des modèles Keras 3 sous TensorFlow 2.10 par reconstruction de l’architecture, avec un écart inférieur à 10⁻⁶.',
             'Tests de robustesse : photo bruitée, schéma, page de texte, fichier texte renommé en .jpg, image tronquée et images test2014 jamais vues.',
           ],
@@ -86,15 +86,15 @@ export const leyendaComputerVision: Project = {
         'Plus de 80 % des émissions carbone estimées du Livrable 1 proviennent de la recherche d’hyperparamètres.',
       ],
       keyFigures: [
-        { value: '92,8 %', label: 'accuracy en 5 classes (IC 95 % : 91,2–94,3)' },
+        { value: '92,8 %', label: 'd’accuracy en 5 classes (intervalle de confiance à 95 % : de 91,2 à 94,3)' },
         { value: '84 %', label: 'des images classées automatiquement à ~98 % de réussite' },
         { value: '+6,3 dB', label: 'de PSNR avec un UNet 4 fois plus léger' },
         { value: '0,271', label: 'BLEU-4 en beam search sur MS COCO' },
       ],
       contribution: [
-        'Livrable 1 : préparation des données de la classe Sketch dans le prétraitement commun, puis conception et réalisation complète de la classification en cinq catégories — quatre modèles, recherche d’hyperparamètres, évaluation, analyse des erreurs et règle de décision par seuil de confiance.',
+        'Livrable 1 : préparation des données de la classe Sketch dans le prétraitement commun, puis conception et réalisation complète de la classification en cinq catégories : quatre modèles, recherche d’hyperparamètres, évaluation, analyse des erreurs et règle de décision par seuil de confiance.',
         'Livrable 2 : conception de l’approche A (CAE et UNet, versions de base et optimisées avec Optuna), construction du notebook final fusionné avec l’approche d’une autre membre du groupe, prétraitement commun, comparaison de tous les modèles et interprétation des résultats appuyée sur la littérature.',
-        'Livrable 3 : réalisé collectivement par les quatre membres du groupe — conception du pipeline, prétraitement des images et du texte, modèle de légendage avec attention, entraînement, évaluation et industrialisation.',
+        'Livrable 3 : réalisé collectivement par les quatre membres du groupe, de la conception du pipeline jusqu’à l’industrialisation : prétraitement des images et du texte, modèle de légendage avec attention, entraînement et évaluation.',
       ],
       challenges: [
         {
@@ -133,13 +133,13 @@ export const leyendaComputerVision: Project = {
         'Computer vision et deep learning (CNN, autoencodeurs, UNet, attention, RNN/GRU), NLP (nettoyage de texte, tokenisation, génération de séquences, beam search), transfer learning (EfficientNetB0), classification d’images sur données déséquilibrées, restauration d’images, image captioning, optimisation d’hyperparamètres (Keras Tuner, Optuna), évaluation statistique (bootstrap, test de McNemar, PSNR, SSIM, BLEU), prévention des fuites de données, traitement de gros volumes (tf.data, memmap, calculs reprenables), industrialisation d’un pipeline ML, travail en équipe et fusion de travaux.',
     },
     en: {
-      title: 'Leyenda — a computer vision pipeline: sorting, restoring and captioning images',
+      title: 'Leyenda, a computer vision pipeline that sorts, restores and captions images',
       shortTitle: 'Leyenda computer vision',
       summary:
         'Three models chained into a reusable pipeline: a CNN that sorts 41,000 scanned images at 92.8% accuracy, a UNet that gains 6.3 dB of PSNR with no clean reference images, and an attention-based captioning model trained on the 123,000 images of MS COCO.',
       category: 'Deep learning · Computer vision · NLP',
-      context: 'Academic project · CESI · team of 4 · late September – October 2026 · fictional client TouNum',
-      cardResult: 'CNN 92.8% (5 classes) · UNet +6.3 dB PSNR · BLEU-4 of 0.271',
+      context: 'Academic project · CESI · team of 4 · late September to October 2026 · fictional client TouNum',
+      cardResult: '92.8% accuracy on 5 classes, +6.3 dB of PSNR for restoration and a BLEU-4 of 0.271 for captioning.',
       highlights: [
         'Sorting 41,000 images into 5 classes with a CNN trained from scratch, with a confidence threshold that automates 84% of cases.',
         'Restoring images with no clean reference: realistic synthetic degradation and a UNet tuned with Optuna.',
@@ -151,27 +151,27 @@ export const leyendaComputerVision: Project = {
         'Automatically classify heterogeneous scanned images and isolate the photographs.',
         'Restore degraded photos (noise, blur, compression) when no clean version exists.',
         'Generate an English caption for each photo and deliver a complete pipeline that runs without the notebook.',
-        'Meet a strict constraint for Deliverables 1 and 2: no pretrained models or transfer learning — every network built layer by layer.',
+        'Meet a strict constraint for Deliverables 1 and 2: no pretrained models or transfer learning, so every network was built layer by layer.',
       ],
       data: [
         'Deliverable 1: 41,399 images in five highly imbalanced classes (Photo, Painting, Schematics, Sketch, Text), with very mixed formats, colour modes and sizes (from 1 pixel to over 10,000 pixels per side), plus duplicates and misfiled images.',
         'Deliverable 2: only 148 photos, already degraded, with no clean reference; mostly light noise but heavy on a few, and not perfectly Gaussian.',
-        'Deliverable 3: every captioned image in MS COCO 2014 — 123,287 images and 616,767 captions — re-split by image into 80/10/10 (93,202, 11,650 and 11,651 images).',
+        'Deliverable 3: every captioned image in MS COCO 2014, that is 123,287 images and 616,767 captions, re-split by image into 80/10/10 (93,202, 11,650 and 11,651 images).',
       ],
       approach: [
         {
-          title: '1. Deliverable 1 — classifying scanned images',
+          title: '1. Deliverable 1: classifying scanned images',
           points: [
             'File-by-file exploratory analysis (true format, colour mode, dimensions, MD5 hash, edge contrast): 25 files whose extension did not match their real format and would have crashed training.',
             'Preprocessing designed against shortcuts: squaring images with white padding instead of stretching, so that image shape cannot give away the class, and automatic cropping of scanner borders.',
             'Detected 3,371 near-duplicate pairs and removed 501 copies to prevent leakage between training and test: 39,716 clean images, stratified 70/15/15 split.',
-            'Binary photo vs non-photo classification: a CNN tuned with Keras Tuner reached 93.1% accuracy, an F1 of 0.933 and an AUC of 0.983 with only 28,257 parameters; its edge over a supervised autoencoder was confirmed with a McNemar test (p ≈ 0.02).',
+            'Binary photo vs non-photo classification: a CNN tuned with Keras Tuner reached 93.1% accuracy, an F1 of 0.933 and an AUC of 0.983 with only 28,257 parameters; its edge over a supervised autoencoder was confirmed with a McNemar test (p of about 0.02).',
             'Five-class classification: four models compared under identical conditions (baseline CNN, CNN tuned by random search over 8 hyperparameters, classifier on a frozen encoder, supervised autoencoder).',
             'Confidence-threshold decision rule, flagging of likely mislabelled images, carbon footprint estimate and a Gradio demo.',
           ],
         },
         {
-          title: '2. Deliverable 2 — restoration with convolutional autoencoders',
+          title: '2. Deliverable 2: restoring photos with convolutional autoencoders',
           points: [
             'Measured defects down to the pixel (RGB and YCbCr channels, Fourier analysis); estimated noise with two independent methods (Donoho wavelets and Immerkaer’s method, Spearman correlation of 0.81) and sharpness via Laplacian variance.',
             'The 111 cleanest images serve as references; the 37 noisiest form a case study never seen in training.',
@@ -181,12 +181,12 @@ export const leyendaComputerVision: Project = {
           ],
         },
         {
-          title: '3. Deliverable 3 — automatic captioning on MS COCO 2014',
+          title: '3. Deliverable 3: captioning MS COCO 2014 images',
           points: [
             'End-to-end pipeline: every file checked with Pillow, sorted by the Deliverable 1 CNN (116,503 photos kept, 6,784 rejected), then denoised by the Deliverable 2 model (a “blind” residual UNet, about 29 dB at σ = 0.1, which barely alters images that are already clean).',
             'Text preprocessing: lower-casing, removing punctuation, digits, overly short captions and duplicates (582,531 captions kept); a 9,127-word vocabulary built on training data only; a 21-word maximum length covering 99% of captions.',
             'Feature extraction with a frozen ImageNet-pretrained EfficientNetB0 (49 regions × 1,280 features), chosen over InceptionV3: same BLEU-4 with 4× fewer parameters and features half the size; stored as float16 (14.6 GB) with resumable computation.',
-            'Encoder-decoder architecture: CNN encoder (Dense 256), Bahdanau attention choosing which image regions to look at for each word, and a GRU decoder (512 units) preferred to an LSTM for 25% fewer parameters at equal performance — about 9.6 million parameters.',
+            'Encoder-decoder architecture: CNN encoder (Dense 256), Bahdanau attention choosing which image regions to look at for each word, and a GRU decoder (512 units) preferred to an LSTM for 25% fewer parameters at equal performance. The model has about 9.6 million parameters.',
             'Training with teacher forcing, cross-entropy masked on padding, Adam with gradient clipping, dropout, early stopping restoring the best weights and a checkpoint every epoch (466,025 image-caption pairs).',
             'Implemented beam search (k = 3) and visualised word-by-word attention maps to check where the model looks.',
           ],
@@ -194,29 +194,29 @@ export const leyendaComputerVision: Project = {
         {
           title: '4. Industrialisation',
           points: [
-            'The full Deliverable 1 → 2 → 3 chain is saved and reusable without the notebook: a PipelineCaptioning class, a pipeline_captioning.py file generated automatically from the notebook cells (a single source of truth), configuration and weights.',
+            'The whole chain, from sorting to captioning, is saved and usable without the notebook: a dedicated Python class, a script generated automatically from the notebook cells so there is only one version of the code, the configuration and the weights.',
             'Keras 3 models reloaded under TensorFlow 2.10 by rebuilding the architecture, with a difference below 10⁻⁶.',
             'Robustness tests: noisy photo, diagram, text page, a text file renamed to .jpg, a truncated image and unseen test2014 images.',
           ],
         },
       ],
       results: [
-        'Five-class classification: the tuned CNN reached 92.8% test accuracy (95% bootstrap confidence interval 91.2–94.3%) and 90.5% on never-seen images, in a 1.6 MB model.',
+        'Five-class classification: the tuned CNN reached 92.8% test accuracy (95% bootstrap confidence interval from 91.2% to 94.3%) and 90.5% on never-seen images, in a 1.6 MB model.',
         'With an 80% confidence threshold, 84% of images are classified automatically with about 98% accuracy; the rest go to human review.',
         'Restoration: the tuned UNet adds 6.3 dB of average PSNR over the degraded image and 3 dB over the best classical filter, with 4× fewer parameters than its base version and the fastest inference among the top models; +10 to 12 dB for denoising.',
         'Captioning: BLEU-1 of 0.689 and BLEU-4 of 0.255 with greedy decoding on the test set; BLEU-4 of 0.271 with beam search, a 1.6-point gain.',
         'Over 80% of Deliverable 1’s estimated carbon emissions came from the hyperparameter search.',
       ],
       keyFigures: [
-        { value: '92.8%', label: '5-class accuracy (95% CI: 91.2–94.3)' },
+        { value: '92.8%', label: '5-class accuracy (95% confidence interval: 91.2 to 94.3)' },
         { value: '84%', label: 'of images classified automatically at ~98% accuracy' },
         { value: '+6.3 dB', label: 'PSNR gain with a UNet 4× lighter' },
         { value: '0.271', label: 'BLEU-4 with beam search on MS COCO' },
       ],
       contribution: [
-        'Deliverable 1: prepared the Sketch-class data within the shared preprocessing, then designed and delivered the entire five-class classification — four models, hyperparameter search, evaluation, error analysis and the confidence-threshold decision rule.',
+        'Deliverable 1: prepared the Sketch-class data within the shared preprocessing, then designed and delivered the entire five-class classification: four models, hyperparameter search, evaluation, error analysis and the confidence-threshold decision rule.',
         'Deliverable 2: designed approach A (CAE and UNet, base and Optuna-tuned versions), built the final notebook merging it with another team member’s approach, shared preprocessing, comparison of all models and a literature-backed interpretation of the results.',
-        'Deliverable 3: built collectively by all four team members — pipeline design, image and text preprocessing, the attention-based captioning model, training, evaluation and industrialisation.',
+        'Deliverable 3: built collectively by all four team members, from pipeline design to industrialisation: image and text preprocessing, the attention-based captioning model, training and evaluation.',
       ],
       challenges: [
         {

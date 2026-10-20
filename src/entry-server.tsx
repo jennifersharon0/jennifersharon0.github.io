@@ -29,7 +29,7 @@ export function routes() {
     const content = project?.content[route.lang];
     return {
       ...route,
-      title: content ? `${content.title} — ${t.meta.projectTitleSuffix}` : t.meta.homeTitle,
+      title: content ? `${content.title} | ${t.meta.projectTitleSuffix}` : t.meta.homeTitle,
       description: content ? content.summary : t.meta.homeDescription,
       locale: t.meta.locale,
       siteName: t.meta.siteName,

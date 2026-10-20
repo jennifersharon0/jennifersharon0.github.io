@@ -9,7 +9,7 @@ import type { Lang } from './routes';
 
 const fr = {
   meta: {
-    siteName: 'Jennifer Ouedraogo — Big Data & IA',
+    siteName: 'Jennifer Ouedraogo, Big Data & IA',
     homeTitle: 'Jennifer Ouedraogo · Big Data & Intelligence Artificielle',
     homeDescription:
       "Portfolio de Jennifer Ouedraogo, élève ingénieure en Data Science & IA au CESI : machine learning explicable, deep learning, LLM appliqués et applications data mises en production. Recherche un stage de fin d'études de 6 mois en Data Science / Machine Learning Engineering (à partir de février 2027).",
@@ -123,7 +123,7 @@ const fr = {
     cv: 'CV (PDF)',
     copy: "Copier l'adresse",
     copied: 'Adresse copiée',
-    copyFailed: 'Copie impossible — sélectionnez l’adresse manuellement',
+    copyFailed: 'Copie impossible, sélectionnez l’adresse à la main',
     write: "M'écrire",
     location: 'Basée à',
   },
@@ -142,7 +142,7 @@ export type UiStrings = typeof fr;
 
 const en: UiStrings = {
   meta: {
-    siteName: 'Jennifer Ouedraogo — Big Data & AI',
+    siteName: 'Jennifer Ouedraogo, Big Data & AI',
     homeTitle: 'Jennifer Ouedraogo · Big Data & Artificial Intelligence',
     homeDescription:
       'Portfolio of Jennifer Ouedraogo, Data Science & AI engineering student at CESI: explainable machine learning, deep learning, applied LLMs and data applications shipped to production. Looking for a 6-month end-of-studies internship in Data Science / Machine Learning Engineering (from February 2027).',
@@ -256,7 +256,7 @@ const en: UiStrings = {
     cv: 'Resume (PDF)',
     copy: 'Copy address',
     copied: 'Address copied',
-    copyFailed: 'Could not copy — please select the address manually',
+    copyFailed: 'Could not copy, please select the address by hand',
     write: 'Send me an email',
     location: 'Based in',
   },

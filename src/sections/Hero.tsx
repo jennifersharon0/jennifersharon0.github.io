@@ -24,7 +24,6 @@ export function Hero() {
           </h1>
 
           <p className="hero-domain mono reveal">
-            <span aria-hidden="true">›_ </span>
             {c.domain}
           </p>
           <p className="hero-role reveal">{c.role}</p>

@@ -10,7 +10,7 @@ export const ademeVrp: Project = {
   links: [],
   content: {
     fr: {
-      title: 'ADEME / CesiCDP — optimisation de tournées de livraison',
+      title: 'Optimisation de tournées de livraison pour l’ADEME',
       shortTitle: 'Tournées ADEME',
       summary:
         "Modéliser un problème de tournées avec capacités, fenêtres horaires et trafic variable, puis le résoudre par une métaheuristique ALNS évaluée sur des instances de référence jusqu'à 1 000 clients.",
@@ -77,7 +77,7 @@ export const ademeVrp: Project = {
         'Modélisation mathématique, analyse de complexité, conception et implémentation de métaheuristiques, protocole expérimental, visualisation de résultats, bibliographie scientifique et travail en équipe avec Git.',
     },
     en: {
-      title: 'ADEME / CesiCDP — delivery route optimisation',
+      title: 'Delivery route optimisation for ADEME',
       shortTitle: 'ADEME routing',
       summary:
         'Modelling a vehicle routing problem with capacities, time windows and time-dependent traffic, then solving it with an ALNS metaheuristic benchmarked on reference instances of up to 1,000 customers.',

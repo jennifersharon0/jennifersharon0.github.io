@@ -17,7 +17,7 @@ export const datalearn: Project = {
         "Application web d'apprentissage de la data science avec assistant IA : 190 notions, leçons et quiz générés par LLM puis contrôlés automatiquement, tableau de bord de progression. Conçue et mise en ligne seule.",
       category: 'IA générative · Application data',
       context: 'Projet personnel mené seule, de la conception à la mise en production',
-      cardResult: '190 quiz conformes à tous les contrôles qualité · 49 tests automatisés',
+      cardResult: 'Les 190 quiz passent tous les contrôles qualité, et 49 tests automatisés couvrent l’API.',
       highlights: [
         'Pipeline de génération de 190 leçons et quiz par LLM, avec contrôle qualité automatique et corrections ciblées.',
         'API FastAPI sécurisée : correction des quiz côté serveur, jetons vérifiés, isolation des données, limiteur de débit.',
@@ -61,13 +61,13 @@ export const datalearn: Project = {
             'Correction des quiz exclusivement côté serveur : le navigateur ne reçoit jamais les bonnes réponses.',
             'Validation de toutes les entrées avec Pydantic (longueurs, nombre de réponses, format des identifiants).',
             'Limiteur de débit à fenêtre glissante écrit sans bibliothèque : 30 questions et 60 définitions par heure et par utilisateur, réponse 429 au-delà.',
-            'Pannes du LLM distinguées (quota épuisé → 503, erreur fournisseur → 502) avec un message clair et sans exposer le détail technique ; définitions mises en cache.',
+            'Pannes du LLM traitées séparément : un quota épuisé renvoie une erreur 503 et une panne du fournisseur une erreur 502, avec un message clair qui n’expose jamais le détail technique. Les définitions déjà générées sont gardées en cache.',
           ],
         },
         {
           title: '4. Données de progression et SQL',
           points: [
-            "Requêtes d'agrégation (GROUP BY, BOOL_OR, MAX, COUNT … FILTER) produisant en une seule lecture l'état de chaque sujet, l'activité jour par jour sur douze semaines et l'historique des quiz.",
+            "Requêtes SQL d'agrégation qui calculent en une seule lecture de la table l'état de chaque sujet, l'activité jour par jour sur douze semaines et l'historique des quiz.",
             'Requêtes paramétrées, ce qui écarte le risque d’injection SQL.',
             'Indicateurs : série de jours consécutifs, part des notions étudiées, part des quiz réussis (seuil 70 %), score moyen et son évolution.',
           ],
@@ -102,7 +102,7 @@ export const datalearn: Project = {
           title: '8. Tests et mise en production',
           points: [
             '49 tests pytest exécutés en moins d’une seconde, dans un environnement isolé (base et LLM simulés).',
-            'Tests de sécurité : jetons expirés, signés par une autre clé, prévus pour un autre usage ou modifiés — tous refusés.',
+            'Tests de sécurité : jetons expirés, signés par une autre clé, prévus pour un autre usage ou modifiés : tous sont refusés.',
             'Tests de bout en bout dont un scénario garantissant qu’un utilisateur ne voit jamais l’activité d’un autre ; tests des vraies requêtes SQL sur une base PostgreSQL de test.',
             'Déploiement de l’API sur Render (avec route de santé) et de l’interface sur Vercel, redéployées à chaque mise à jour du dépôt.',
           ],
@@ -154,7 +154,7 @@ export const datalearn: Project = {
         'A web app for learning data science with an AI assistant: 190 topics, LLM-generated lessons and quizzes with automated quality checks, and a progress dashboard. Designed and shipped on my own.',
       category: 'Generative AI · Data application',
       context: 'Solo personal project, from design to production',
-      cardResult: 'All 190 quizzes pass every quality check · 49 automated tests',
+      cardResult: 'All 190 quizzes pass every quality check, and 49 automated tests cover the API.',
       highlights: [
         'A pipeline generating 190 lessons and quizzes with an LLM, with automated quality checks and targeted fixes.',
         'A secure FastAPI backend: server-side grading, verified tokens, per-user data isolation, rate limiting.',
@@ -198,13 +198,13 @@ export const datalearn: Project = {
             'Quizzes graded server-side only: the browser never receives the correct answers.',
             'All inputs validated with Pydantic (lengths, number of answers, identifier format).',
             'Sliding-window rate limiter written from scratch: 30 questions and 60 definitions per hour per user, HTTP 429 beyond that.',
-            'LLM failures handled explicitly (quota exhausted → 503, provider error → 502) with clear messages and no technical details exposed; definitions are cached.',
+            'LLM failures handled separately: an exhausted quota returns a 503 and a provider outage a 502, each with a clear message that never exposes technical details. Definitions already generated are cached.',
           ],
         },
         {
           title: '4. Progress data and SQL',
           points: [
-            'Aggregation queries (GROUP BY, BOOL_OR, MAX, COUNT … FILTER) that return, in a single table scan, each topic’s status, twelve weeks of daily activity and quiz history.',
+            'SQL aggregation queries that compute, in a single pass over the table, each topic’s status, twelve weeks of daily activity and the quiz history.',
             'Parameterised queries throughout, ruling out SQL injection.',
             'Metrics: streak of active days, share of topics studied, share of quizzes passed (70% threshold), average score and its trend.',
           ],
@@ -239,7 +239,7 @@ export const datalearn: Project = {
           title: '8. Testing and production',
           points: [
             '49 pytest tests running in under a second in a fully isolated environment (database and LLM mocked).',
-            'Security tests: expired tokens, tokens signed by another key, issued for another audience or tampered with to impersonate another user — all rejected.',
+            'Security tests: expired tokens, tokens signed by another key, issued for another audience or tampered with to impersonate another user are all rejected.',
             "End-to-end API tests, including one ensuring a user never sees another user's activity, and tests of the real SQL queries against a test PostgreSQL database.",
             'API deployed on Render (with a health-check route) and front end on Vercel, both redeployed on every push.',
           ],
@@ -248,7 +248,7 @@ export const datalearn: Project = {
       results: [
         'A complete web application, deployed and available online.',
         'All 190 quizzes pass every quality check after the targeted fixes.',
-        '49 automated tests running in under a second; I checked they actually catch bugs by deliberately removing the per-user filter from a query — the tests flagged it.',
+        '49 automated tests running in under a second; I checked they actually catch bugs by deliberately removing the per-user filter from a query, and the tests caught it.',
       ],
       keyFigures: [
         { value: '190', label: 'topics in 16 categories' },

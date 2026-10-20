@@ -19,7 +19,7 @@ export const journey: Localized<JourneyContent> = {
     education: [
       {
         period: '2025 – 2027',
-        title: 'Cycle ingénieur — spécialisation Data Science & IA',
+        title: 'Cycle ingénieur, spécialisation Data Science & IA',
         org: 'CESI École d’Ingénieurs',
         place: 'Nanterre, France',
       },
@@ -54,7 +54,7 @@ export const journey: Localized<JourneyContent> = {
     education: [
       {
         period: '2025 – 2027',
-        title: 'Engineering degree — Data Science & AI major',
+        title: 'Engineering degree, Data Science & AI major',
         org: 'CESI School of Engineering',
         place: 'Nanterre, France',
       },
@@ -66,7 +66,7 @@ export const journey: Localized<JourneyContent> = {
       },
       {
         period: '2022 – 2024',
-        title: 'Preparatory classes (MPSI / MP) — intensive maths & physics',
+        title: 'Preparatory classes (MPSI / MP) in maths and physics',
         org: 'CPGE LaSalle',
         place: 'Ouagadougou, Burkina Faso',
       },

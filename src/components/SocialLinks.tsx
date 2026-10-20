@@ -7,7 +7,7 @@ export function SocialLinks() {
   const { t } = useLang();
   return (
     <>
-      <a className="icon-btn" href={`mailto:${profile.email}`} aria-label={`${t.contact.email} — ${profile.email}`} title={profile.email}>
+      <a className="icon-btn" href={`mailto:${profile.email}`} aria-label={`${t.contact.email} : ${profile.email}`} title={profile.email}>
         <Icon name="mail" />
       </a>
       <a

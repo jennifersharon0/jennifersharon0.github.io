@@ -5,7 +5,7 @@ import { useLang } from '../i18n/useLang';
 
 export function NotFound() {
   const { lang, t } = useLang();
-  useDocumentMeta(lang, `${t.notFound.title} — Jennifer Ouedraogo`, t.notFound.text);
+  useDocumentMeta(lang, `${t.notFound.title} | Jennifer Ouedraogo`, t.notFound.text);
 
   return (
     <section className="section not-found">

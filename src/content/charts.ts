@@ -18,7 +18,7 @@ export const mnistAccuracy = {
   } satisfies Localized<string>,
   caption: {
     fr: 'MNIST, même découpage entraînement / test pour toutes les représentations. Axe resserré entre 0,95 et 0,99 pour rendre les écarts lisibles.',
-    en: 'MNIST, same train/test split for every representation. Axis narrowed to 0.95–0.99 so the gaps are readable.',
+    en: 'MNIST, same train/test split for every representation. Axis narrowed to 0.95 to 0.99 so the gaps are readable.',
   } satisfies Localized<string>,
   domain: [0.95, 0.99] as const,
   ticks: [0.95, 0.96, 0.97, 0.98, 0.99],

@@ -36,7 +36,7 @@ export function ProjectPage() {
   const project = getProject(slug);
   const c = project?.content[lang];
 
-  useDocumentMeta(lang, c ? `${c.title} — ${t.meta.projectTitleSuffix}` : t.notFound.title, c?.summary ?? t.notFound.text);
+  useDocumentMeta(lang, c ? `${c.title} | ${t.meta.projectTitleSuffix}` : t.notFound.title, c?.summary ?? t.notFound.text);
 
   if (!project || !c) return <NotFound />;
 
@@ -129,7 +129,7 @@ export function ProjectPage() {
 
           {c.note && (
             <p className="case-note reveal">
-              <strong>{t.project.note} — </strong>
+              <strong>{t.project.note}{lang === 'fr' ? ' : ' : ': '}</strong>
               {c.note}
             </p>
           )}

@@ -11,20 +11,20 @@ export const diabetesDeepLearning: Project = {
   links: [],
   content: {
     fr: {
-      title: 'Prédiction du diabète — pipeline Deep Learning de bout en bout',
+      title: 'Prédiction du diabète avec un pipeline de deep learning complet',
       shortTitle: 'Prédiction du diabète',
       summary:
         "Du prétraitement des données de santé au service du modèle : réseaux de neurones en PyTorch, suivi d'expériences, analyse des biais, mesure de l'empreinte carbone et industrialisation.",
       category: 'Deep Learning · MLOps',
       context: 'Projet académique · CESI · groupe de 4 étudiants',
-      cardResult: 'ROC AUC ≈ 0,82 · biais analysés sur 5 attributs sensibles',
+      cardResult: 'ROC AUC de 0,82, avec une analyse des biais sur 5 attributs sensibles.',
       highlights: [
         'Préparation sans fuite : ColumnTransformer + RobustScaler, découpage stratifié 70 / 15 / 15, pondération des classes.',
         'MLP PyTorch optimisé avec Optuna et suivi dans MLflow, comparé à une régression logistique de référence.',
         'Audit des biais sur 5 attributs sensibles, empreinte carbone (CodeCarbon), DVC, CI/CD, Docker et API FastAPI.',
       ],
       problem:
-        "Prédire l'apparition du diabète à partir de données de santé, en construisant un pipeline complet — du prétraitement jusqu'au déploiement — tout en examinant les biais du modèle et son empreinte carbone.",
+        "Prédire l'apparition du diabète à partir de données de santé, en construisant un pipeline complet, du prétraitement jusqu'au déploiement, tout en examinant les biais du modèle et son empreinte carbone.",
       objectives: [
         'Préparer les données sans fuite entre les jeux d’entraînement, de validation et de test.',
         'Construire et optimiser des réseaux de neurones en PyTorch, avec un suivi d’expériences reproductible.',
@@ -86,7 +86,7 @@ export const diabetesDeepLearning: Project = {
         'Un rapport de biais couvrant cinq attributs sensibles et une estimation chiffrée du coût carbone de l’inférence accompagnent le modèle.',
       ],
       keyFigures: [
-        { value: '≈ 0,82', label: 'ROC AUC du meilleur modèle' },
+        { value: '0,82', label: 'de ROC AUC pour le meilleur modèle' },
         { value: '70 / 15 / 15', label: 'découpage stratifié (%)' },
         { value: '5', label: 'attributs sensibles audités' },
       ],
@@ -113,20 +113,20 @@ export const diabetesDeepLearning: Project = {
         'Analyse statistique exploratoire, prétraitement sans fuite, réseaux de neurones avec PyTorch, optimisation d’hyperparamètres (Optuna), suivi d’expériences (MLflow), évaluation de l’équité, mesure d’impact environnemental, MLOps (DVC, tests, GitHub Actions, Docker, FastAPI) et travail en équipe.',
     },
     en: {
-      title: 'Diabetes prediction — an end-to-end deep learning pipeline',
+      title: 'Predicting diabetes with an end-to-end deep learning pipeline',
       shortTitle: 'Diabetes prediction',
       summary:
         'From health data preprocessing to model serving: PyTorch neural networks, experiment tracking, bias analysis, carbon footprint measurement and MLOps.',
       category: 'Deep learning · MLOps',
       context: 'Academic project · CESI · team of 4 students',
-      cardResult: 'ROC AUC ≈ 0.82 · bias audited across 5 sensitive attributes',
+      cardResult: 'ROC AUC of 0.82, with a bias audit across 5 sensitive attributes.',
       highlights: [
         'Leak-free preparation: ColumnTransformer + RobustScaler, stratified 70/15/15 split, class weighting.',
         'A PyTorch MLP tuned with Optuna and tracked in MLflow, compared with a logistic regression baseline.',
         'Bias audit across 5 sensitive attributes, carbon footprint (CodeCarbon), DVC, CI/CD, Docker and a FastAPI service.',
       ],
       problem:
-        'Predict the onset of diabetes from health data by building a complete pipeline — from preprocessing to deployment — while examining model bias and carbon footprint.',
+        'Predict the onset of diabetes from health data by building a complete pipeline, from preprocessing to deployment, while examining model bias and carbon footprint.',
       objectives: [
         'Prepare the data with no leakage between training, validation and test sets.',
         'Build and tune neural networks in PyTorch with reproducible experiment tracking.',
@@ -188,7 +188,7 @@ export const diabetesDeepLearning: Project = {
         'The model ships with a bias report covering five sensitive attributes and a quantified estimate of its inference carbon cost.',
       ],
       keyFigures: [
-        { value: '≈ 0.82', label: 'ROC AUC of the best model' },
+        { value: '0.82', label: 'ROC AUC for the best model' },
         { value: '70 / 15 / 15', label: 'stratified split (%)' },
         { value: '5', label: 'sensitive attributes audited' },
       ],

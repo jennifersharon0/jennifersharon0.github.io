@@ -39,7 +39,7 @@ export function Skills({ index }: { index: number }) {
                       <span className="skill-name">
                         <span className="legend-mark" aria-hidden="true" />
                         {name}
-                        {used.length === 0 && <span className="visually-hidden"> — {t.skills.legendListed}</span>}
+                        {used.length === 0 && <span className="visually-hidden"> ({t.skills.legendListed})</span>}
                       </span>
                       {skill.note && <span className="skill-note">{skill.note[lang]}</span>}
                       {used.length > 0 && (

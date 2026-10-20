@@ -10,13 +10,13 @@ export const hrAttrition: Project = {
   links: [],
   content: {
     fr: {
-      title: 'HumanForYou — prédire et expliquer l’attrition des employés',
+      title: 'Prédire et expliquer les départs d’employés chez HumanForYou',
       shortTitle: 'Attrition RH',
       summary:
         "Croiser données RH, enquêtes et badgeuses pour prédire les départs, puis traduire le modèle en leviers d'action concrets pour les ressources humaines.",
       category: 'Machine Learning · IA explicable',
       context: 'Projet IA académique · cas d’entreprise HumanForYou',
-      cardResult: 'Random Forest optimisé : ≈ 85 % d’accuracy · facteurs d’attrition expliqués',
+      cardResult: 'Un Random Forest optimisé à environ 85 % d’accuracy, et des facteurs de départ clairement identifiés.',
       highlights: [
         'Fusion de 4 sources RH et 8 variables dérivées des badgeuses (heures travaillées, retards, absences).',
         'Régression logistique, arbre de décision et Random Forest optimisé comparés sur accuracy, precision, recall, F1 et ROC AUC.',
@@ -74,7 +74,7 @@ export const hrAttrition: Project = {
         'Ces facteurs ont été traduits en recommandations concrètes pour les équipes RH.',
       ],
       keyFigures: [
-        { value: '≈ 85 %', label: 'accuracy du Random Forest optimisé' },
+        { value: '85 %', label: 'd’accuracy environ pour le Random Forest optimisé' },
         { value: '4', label: 'sources de données fusionnées' },
         { value: '8', label: 'variables dérivées des badgeuses' },
       ],
@@ -100,13 +100,13 @@ export const hrAttrition: Project = {
         'Fusion de sources hétérogènes, feature engineering, imputation, tests statistiques (Chi², V de Cramer, VIF), classification supervisée, évaluation multi-métriques, explicabilité, éthique de l’IA et restitution à un public non technique.',
     },
     en: {
-      title: 'HumanForYou — predicting and explaining employee attrition',
+      title: 'Predicting and explaining employee attrition at HumanForYou',
       shortTitle: 'HR attrition',
       summary:
         'Combining HR records, surveys and badge data to predict departures, then turning the model into concrete levers for HR.',
       category: 'Machine learning · Explainable AI',
       context: 'Academic AI project · HumanForYou business case',
-      cardResult: 'Tuned random forest: ≈ 85% accuracy · attrition drivers explained',
+      cardResult: 'A tuned random forest at about 85% accuracy, with the drivers of attrition clearly identified.',
       highlights: [
         'Merged 4 HR sources and engineered 8 features from badge data (hours worked, late arrivals, absences).',
         'Logistic regression, decision tree and tuned random forest compared on accuracy, precision, recall, F1 and ROC AUC.',
@@ -164,7 +164,7 @@ export const hrAttrition: Project = {
         'These factors were turned into concrete recommendations for HR teams.',
       ],
       keyFigures: [
-        { value: '≈ 85%', label: 'accuracy of the tuned random forest' },
+        { value: '85%', label: 'approximate accuracy of the tuned random forest' },
         { value: '4', label: 'data sources merged' },
         { value: '8', label: 'features derived from badge data' },
       ],

@@ -13,7 +13,7 @@ export const greenresoInfrastructure: Project = {
   links: [],
   content: {
     fr: {
-      title: 'GreenReso — infrastructure du système d’information',
+      title: 'Infrastructure du système d’information de GreenReso',
       shortTitle: 'GreenReso',
       summary:
         "Concevoir une infrastructure SI plus sûre et mieux structurée pour une PME d'IoT énergétique victime d'une fuite de données, en intégrant la sobriété numérique.",
@@ -52,7 +52,7 @@ export const greenresoInfrastructure: Project = {
         'Analyse de besoins, architecture réseau, annuaire Active Directory et stratégies de groupe, automatisation PowerShell, sensibilisation à la cybersécurité et numérique responsable.',
     },
     en: {
-      title: 'GreenReso — information system infrastructure',
+      title: 'GreenReso’s information system infrastructure',
       shortTitle: 'GreenReso',
       summary:
         'Designing a safer, better-structured IT infrastructure for an energy IoT SME after a data leak, with digital sobriety in mind.',

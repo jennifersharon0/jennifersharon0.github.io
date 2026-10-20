@@ -34,7 +34,7 @@ export function Header() {
   return (
     <header className={`site-header${scrolled ? ' is-scrolled' : ''}${open ? ' is-open' : ''}`}>
       <div className="container header-inner">
-        <Link to={homePath(lang)} className="brand" aria-label={`${profile.firstName} ${profile.lastName} — ${t.a11y.home}`}>
+        <Link to={homePath(lang)} className="brand" aria-label={`${profile.firstName} ${profile.lastName}, ${t.a11y.home}`}>
           <span className="brand-mark" aria-hidden="true">
             JO
           </span>
