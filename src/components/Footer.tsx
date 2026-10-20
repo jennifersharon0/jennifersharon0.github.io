@@ -15,7 +15,7 @@ export function Footer() {
             {profile.firstName} {profile.lastName}
           </p>
           <p className="footer-meta mono">
-            © {__BUILD_YEAR__} · Big Data & Artificial Intelligence
+            © {__BUILD_YEAR__} · Data Science & Machine Learning
           </p>
           <p className="footer-built">{t.footer.built}</p>
         </div>

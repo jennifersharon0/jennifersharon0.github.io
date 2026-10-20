@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "description": "Portfolio bilingue (FR/EN) de Jennifer Ouedraogo — Big Data & Intelligence Artificielle",
+  "description": "Portfolio bilingue (FR/EN) de Jennifer Ouedraogo — Data Science & Machine Learning",
   "scripts": {
     "dev": "vite",
     "typecheck": "tsc --noEmit",

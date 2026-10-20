@@ -44,7 +44,7 @@ const ogText = Buffer.from(`
   <rect x="70" y="190" width="56" height="3" fill="${GOLD}"/>
   <text x="70" y="270" font-family="Georgia, serif" font-size="64" fill="${IVORY}">Jennifer</text>
   <text x="70" y="345" font-family="Georgia, serif" font-size="64" fill="${IVORY}">OUEDRAOGO</text>
-  <text x="72" y="410" font-family="Consolas, monospace" font-size="25" fill="${GOLD}">Big Data &amp; Artificial Intelligence</text>
+  <text x="72" y="410" font-family="Consolas, monospace" font-size="25" fill="${GOLD}">Data Science &amp; Machine Learning</text>
   <text x="72" y="458" font-family="Arial, sans-serif" font-size="23" fill="${IVORY}">Data Science &amp; IA · CESI École d'Ingénieurs</text>
 </svg>`);
 

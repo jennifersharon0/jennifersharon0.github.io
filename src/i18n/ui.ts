@@ -9,8 +9,8 @@ import type { Lang } from './routes';
 
 const fr = {
   meta: {
-    siteName: 'Jennifer Ouedraogo, Big Data & IA',
-    homeTitle: 'Jennifer Ouedraogo · Big Data & Intelligence Artificielle',
+    siteName: 'Jennifer Ouedraogo, Data Science & Machine Learning',
+    homeTitle: 'Jennifer Ouedraogo · Data Science & Machine Learning',
     homeDescription:
       "Portfolio de Jennifer Ouedraogo, élève ingénieure en Data Science & IA au CESI : machine learning explicable, deep learning, LLM appliqués et applications data mises en production. Recherche un stage de fin d'études de 6 mois en Data Science / Machine Learning Engineering (à partir de février 2027).",
     projectTitleSuffix: 'Étude de cas · Jennifer Ouedraogo',
@@ -85,7 +85,7 @@ const fr = {
     team: 'Équipe',
     stack: 'Technologies',
     links: 'Liens',
-    noLinks: 'Code et démonstration non publiés à ce jour.',
+    noLinks: 'Projet académique : code disponible sur demande',
     problem: 'Le problème',
     contribution: 'Ma contribution',
     objectives: 'Objectifs',
@@ -142,8 +142,8 @@ export type UiStrings = typeof fr;
 
 const en: UiStrings = {
   meta: {
-    siteName: 'Jennifer Ouedraogo, Big Data & AI',
-    homeTitle: 'Jennifer Ouedraogo · Big Data & Artificial Intelligence',
+    siteName: 'Jennifer Ouedraogo, Data Science & Machine Learning',
+    homeTitle: 'Jennifer Ouedraogo · Data Science & Machine Learning',
     homeDescription:
       'Portfolio of Jennifer Ouedraogo, Data Science & AI engineering student at CESI: explainable machine learning, deep learning, applied LLMs and data applications shipped to production. Looking for a 6-month end-of-studies internship in Data Science / Machine Learning Engineering (from February 2027).',
     projectTitleSuffix: 'Case study · Jennifer Ouedraogo',
@@ -218,7 +218,7 @@ const en: UiStrings = {
     team: 'Team',
     stack: 'Tech stack',
     links: 'Links',
-    noLinks: 'Code and demo not published yet.',
+    noLinks: 'Academic project: code available on request',
     problem: 'The problem',
     contribution: 'My contribution',
     objectives: 'Goals',

@@ -1,4 +1,4 @@
-# Portfolio — Jennifer Ouedraogo · Big Data & Intelligence Artificielle
+# Portfolio — Jennifer Ouedraogo · Data Science & Machine Learning
 
 Portfolio professionnel bilingue (français / anglais) présentant mon profil, mes compétences et mes projets de Data Science, Machine Learning, Deep Learning et IA sous forme d'études de cas.
 

@@ -75,6 +75,7 @@
 
 .main-nav a:not(.btn) {
   display: block;
+  white-space: nowrap;
   padding: 8px 12px;
   border-radius: 999px;
   color: var(--nav-ink);
@@ -170,7 +171,13 @@
 
 /* ---------- Mobile / tablette ---------- */
 
-@media (max-width: 960px) {
+@media (max-width: 1120px) and (min-width: 1041px) {
+  .main-nav a:not(.btn) {
+    padding: 8px 9px;
+  }
+}
+
+@media (max-width: 1040px) {
   .menu-toggle {
     display: inline-grid;
   }

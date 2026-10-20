@@ -28,7 +28,7 @@ export interface HeroContent {
 
 export const hero: Localized<HeroContent> = {
   fr: {
-    domain: 'Big Data & Artificial Intelligence',
+    domain: 'Data Science & Machine Learning',
     role: 'Élève ingénieure en Data Science & IA · CESI École d’Ingénieurs',
     headline: 'Des modèles qu’on peut vérifier, des résultats qu’on peut expliquer.',
     lead:
@@ -40,7 +40,7 @@ export const hero: Localized<HeroContent> = {
     ],
   },
   en: {
-    domain: 'Big Data & Artificial Intelligence',
+    domain: 'Data Science & Machine Learning',
     role: 'Data Science & AI engineering student · CESI School of Engineering',
     headline: 'Models you can verify, results you can explain.',
     lead:

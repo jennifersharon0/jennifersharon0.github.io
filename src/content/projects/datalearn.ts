@@ -8,7 +8,10 @@ export const datalearn: Project = {
   teamSize: 1,
   featured: true,
   stack: ['Python', 'FastAPI', 'Pydantic', 'PostgreSQL', 'Supabase', 'Llama 3.3 70B (Groq)', 'React', 'TypeScript', 'Vite', 'pytest', 'Render', 'Vercel'],
-  links: [],
+  links: [
+    { label: { fr: 'Code', en: 'Code' }, url: 'https://github.com/jennifersharon0/DataLearn' },
+    { label: { fr: 'Démo', en: 'Demo' }, url: 'https://datalearn-ten.vercel.app/login' },
+  ],
   content: {
     fr: {
       title: 'DataLearn',

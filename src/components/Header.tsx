@@ -42,7 +42,7 @@ export function Header() {
             <span className="brand-name">
               {profile.firstName} {profile.lastName}
             </span>
-            <span className="brand-role mono">Big Data & AI</span>
+            <span className="brand-role mono">Data Science & Machine Learning</span>
           </span>
         </Link>
 
