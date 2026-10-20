@@ -78,7 +78,7 @@ Chaque `git push` sur `main` redéploie ensuite le site automatiquement.
 ├── .github/workflows/deploy.yml   Build + déploiement GitHub Pages
 ├── index.html                     Gabarit HTML (thème appliqué avant affichage)
 ├── public/                        Fichiers copiés tels quels
-│   ├── cv/Jennifer_Ouedraogo_CV.pdf
+│   ├── cv/CV_Jennifer_OUEDRAOGO_Data_Science.pdf
 │   ├── img/                       Portrait optimisé (WebP/JPEG) et image de partage
 │   └── favicon.svg
 ├── scripts/
@@ -110,7 +110,9 @@ Chaque `git push` sur `main` redéploie ensuite le site automatiquement.
   links: [{ label: { fr: 'Code source', en: 'Source code' }, url: 'https://github.com/…' }],
   ```
 - **Ajouter un projet** : copier un fichier de `src/content/projects/`, l'adapter, puis l'ajouter à la liste de `src/content/projects/index.ts`.
-- **Changer la photo ou le CV** : remplacer `Photo_Profil.png` ou `Cv_PFE.pdf` à la racine, puis lancer `npm run images`. (Ces fichiers sources ne sont pas versionnés ; seules les copies optimisées de `public/` sont publiées.)
+- **Changer la photo** : remplacer `public/img/photo portfolio.png`, puis lancer `npm run images` (génère le portrait optimisé et l'image de partage).
+- **Changer le CV** : déposer le nouveau PDF dans `public/cv/` et mettre à jour `cvFile` dans `src/content/profile.ts`.
+- **Changer les couleurs** : toutes les couleurs sont des variables CSS dans `src/styles/tokens.css` (palette bordeaux / or doux, thèmes clair et sombre).
 
 ## Accessibilité et qualité
 

@@ -36,6 +36,10 @@ export interface ProjectContent {
   keyFigures?: KeyFigure[];
   /** Résultat mis en avant sur la carte du projet. */
   cardResult?: string;
+  /** Trois points clés affichés sur la carte (plus détaillés que le CV). */
+  highlights?: string[];
+  /** Contribution personnelle, pour les projets d'équipe. */
+  contribution?: string[];
   challenges?: Challenge[];
   learnings?: string[];
   limits?: string[];

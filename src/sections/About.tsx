@@ -45,8 +45,12 @@ export function About({ index }: { index: number }) {
                 <dd>{c.languages}</dd>
               </div>
               <div>
-                <dt>{t.about.certification}</dt>
-                <dd>{c.certification}</dd>
+                <dt>{t.about.softSkills}</dt>
+                <dd>{c.softSkills}</dd>
+              </div>
+              <div>
+                <dt>{t.about.engagement}</dt>
+                <dd>{c.engagement}</dd>
               </div>
               <div>
                 <dt>{t.about.interests}</dt>

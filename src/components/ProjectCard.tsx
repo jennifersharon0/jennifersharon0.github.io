@@ -16,13 +16,13 @@ export function projectMeta(project: Project, t: ReturnType<typeof useLang>['t']
 }
 
 /** Carte de projet : toute la carte est cliquable (lien étiré sur le titre). */
-export function ProjectCard({ project, variant = 'featured' }: { project: Project; variant?: 'featured' | 'compact' }) {
+export function ProjectCard({ project, variant = 'featured', wide = false }: { project: Project; variant?: 'featured' | 'compact'; wide?: boolean }) {
   const { lang, t } = useLang();
   const c = project.content[lang];
   const extra = project.stack.length - MAX_TAGS;
 
   return (
-    <article className={`project-card card project-card--${variant} reveal`}>
+    <article className={`project-card card project-card--${variant}${wide ? ' project-card--wide' : ''} reveal`}>
       <p className="project-card-category eyebrow">{c.category}</p>
       <h3 className="project-card-title">
         <Link to={projectPath(lang, project.slug)} className="stretched-link">
@@ -31,6 +31,14 @@ export function ProjectCard({ project, variant = 'featured' }: { project: Projec
       </h3>
       <p className="project-card-meta mono">{projectMeta(project, t).join(' · ')}</p>
       <p className="project-card-summary">{c.summary}</p>
+
+      {variant === 'featured' && c.highlights && (
+        <ul className="project-card-highlights">
+          {c.highlights.map((h) => (
+            <li key={h}>{h}</li>
+          ))}
+        </ul>
+      )}
 
       {variant === 'featured' && c.cardResult && (
         <p className="project-card-result">

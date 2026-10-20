@@ -16,9 +16,14 @@ export const hrAttrition: Project = {
         "Croiser données RH, enquêtes et badgeuses pour prédire les départs, puis traduire le modèle en leviers d'action concrets pour les ressources humaines.",
       category: 'Machine Learning · IA explicable',
       context: 'Projet IA académique · cas d’entreprise HumanForYou',
-      cardResult: 'Random Forest optimisé : ≈ 85 % d’accuracy · facteurs d’attrition expliqués',
+      cardResult: 'Random Forest optimisé : ≈ 85 % d’accuracy · facteurs d’attrition expliqués',
+      highlights: [
+        'Fusion de 4 sources RH et 8 variables dérivées des badgeuses (heures travaillées, retards, absences).',
+        'Régression logistique, arbre de décision et Random Forest optimisé comparés sur accuracy, precision, recall, F1 et ROC AUC.',
+        'Explicabilité par importance des variables, recommandations RH et livrable éthique (7 exigences UE).',
+      ],
       problem:
-        "HumanForYou, entreprise pharmaceutique indienne d'environ 4 000 employés, perd environ 15 % de ses effectifs chaque année. La direction voulait comprendre les facteurs de ce turn-over, disposer de modèles prédictifs et obtenir des pistes concrètes pour améliorer la rétention.",
+        "HumanForYou, entreprise pharmaceutique indienne d'environ 4 000 employés, perd environ 15 % de ses effectifs chaque année. La direction voulait comprendre les facteurs de ce turn-over, disposer de modèles prédictifs et obtenir des pistes concrètes pour améliorer la rétention.",
       objectives: [
         'Identifier les facteurs qui expliquent les départs.',
         'Construire et comparer des modèles de classification prédisant l’attrition.',
@@ -36,7 +41,7 @@ export const hrAttrition: Project = {
           points: [
             'Analyse exploratoire : distributions, valeurs manquantes, statistiques descriptives, déséquilibre des classes.',
             'Imputation KNN des valeurs manquantes numériques et imputation par le mode pour les catégorielles.',
-            'Normalisation des variables numériques, encodage des catégorielles, découpage stratifié 80 % / 20 %.',
+            'Normalisation des variables numériques, encodage des catégorielles, découpage stratifié 80 % / 20 %.',
           ],
         },
         {
@@ -64,12 +69,12 @@ export const hrAttrition: Project = {
         },
       ],
       results: [
-        'Le Random Forest optimisé obtient les meilleures performances, avec environ 85 % d’accuracy.',
+        'Le Random Forest optimisé obtient les meilleures performances, avec environ 85 % d’accuracy.',
         "L'attrition apparaît liée à un cumul de signaux faibles : charge de travail excessive, relation managériale instable, manque de perspectives de carrière, reconnaissance salariale ou promotion insuffisante, et signaux comportementaux comme les absences ou les retards.",
         'Ces facteurs ont été traduits en recommandations concrètes pour les équipes RH.',
       ],
       keyFigures: [
-        { value: '≈ 85 %', label: 'accuracy du Random Forest optimisé' },
+        { value: '≈ 85 %', label: 'accuracy du Random Forest optimisé' },
         { value: '4', label: 'sources de données fusionnées' },
         { value: '8', label: 'variables dérivées des badgeuses' },
       ],
@@ -102,6 +107,11 @@ export const hrAttrition: Project = {
       category: 'Machine learning · Explainable AI',
       context: 'Academic AI project · HumanForYou business case',
       cardResult: 'Tuned random forest: ≈ 85% accuracy · attrition drivers explained',
+      highlights: [
+        'Merged 4 HR sources and engineered 8 features from badge data (hours worked, late arrivals, absences).',
+        'Logistic regression, decision tree and tuned random forest compared on accuracy, precision, recall, F1 and ROC AUC.',
+        'Explainability through feature importance, HR recommendations and an ethics deliverable (7 EU requirements).',
+      ],
       problem:
         'HumanForYou, an Indian pharmaceutical company with around 4,000 employees, loses about 15% of its workforce every year. Management wanted to understand what drives this turnover, have predictive models, and get concrete ideas to improve retention.',
       objectives: [

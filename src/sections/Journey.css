@@ -21,7 +21,7 @@
   top: 8px;
   bottom: 8px;
   width: 1px;
-  background: var(--line-strong);
+  background: var(--line);
 }
 
 .timeline-item {
@@ -41,11 +41,11 @@
   height: 9px;
   border-radius: 50%;
   background: var(--bg-alt);
-  border: 2px solid var(--accent);
+  border: 2px solid var(--gold);
 }
 
 .timeline-item:first-child::before {
-  background: var(--accent);
+  background: var(--gold);
 }
 
 .timeline-period {

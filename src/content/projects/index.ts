@@ -3,6 +3,7 @@
  * Pour ajouter un projet : créer un fichier sur le modèle des autres, puis l'ajouter à cette liste.
  */
 import type { Project } from '../types';
+import { leyendaComputerVision } from './leyenda-computer-vision';
 import { datalearn } from './datalearn';
 import { mnistAutoencoders } from './mnist-autoencoders';
 import { diabetesDeepLearning } from './diabetes-deep-learning';
@@ -11,10 +12,11 @@ import { ademeVrp } from './ademe-vrp';
 import { greenresoInfrastructure } from './greenreso-infrastructure';
 
 export const projects: Project[] = [
+  leyendaComputerVision,
   datalearn,
-  mnistAutoencoders,
   diabetesDeepLearning,
   hrAttrition,
+  mnistAutoencoders,
   ademeVrp,
   greenresoInfrastructure,
 ];

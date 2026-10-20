@@ -18,7 +18,7 @@ export const journey: Localized<JourneyContent> = {
   fr: {
     education: [
       {
-        period: '2025 – 2026',
+        period: '2025 – 2027',
         title: 'Cycle ingénieur — spécialisation Data Science & IA',
         org: 'CESI École d’Ingénieurs',
         place: 'Nanterre, France',
@@ -48,21 +48,12 @@ export const journey: Localized<JourneyContent> = {
           'Tests fonctionnels et rédaction de rapports techniques.',
         ],
       },
-      {
-        period: 'Depuis juil. 2025',
-        title: 'Employée polyvalente — restauration rapide',
-        org: 'Mister Garden Europe',
-        points: [
-          'Service rapide, gestion des précommandes et de la caisse, mise en rayon.',
-          'Relation client quotidienne, rigueur et gestion du rythme en environnement commercial.',
-        ],
-      },
     ],
   },
   en: {
     education: [
       {
-        period: '2025 – 2026',
+        period: '2025 – 2027',
         title: 'Engineering degree — Data Science & AI major',
         org: 'CESI School of Engineering',
         place: 'Nanterre, France',
@@ -90,15 +81,6 @@ export const journey: Localized<JourneyContent> = {
           'Built a landing page with a countdown timer for the Water and Mining website.',
           'Implemented an ad activation feature on the Dilink platform.',
           'Ran functional tests and wrote technical reports.',
-        ],
-      },
-      {
-        period: 'Since Jul. 2025',
-        title: 'Crew member — quick-service restaurant',
-        org: 'Mister Garden Europe',
-        points: [
-          'Fast-paced service, pre-order handling, cash register and shelf restocking.',
-          'Daily customer interaction, attention to detail and working at pace in a retail setting.',
         ],
       },
     ],

@@ -85,7 +85,7 @@
 
 .skill-projects a {
   color: var(--muted);
-  text-decoration-color: var(--line-strong);
+  text-decoration-color: var(--gold);
 }
 
 .skill-projects a:hover {

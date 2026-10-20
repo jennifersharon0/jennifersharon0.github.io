@@ -37,7 +37,7 @@
   min-height: 1.5em;
   margin-top: 10px;
   font-size: 0.88rem;
-  color: var(--ok);
+  color: var(--accent);
 }
 
 .contact-links {
@@ -60,7 +60,7 @@
 
 a.contact-link:hover {
   color: var(--ink);
-  border-color: var(--accent);
+  border-color: var(--gold);
   transform: translateX(3px);
 }
 
@@ -68,7 +68,7 @@ a.contact-link:hover {
   width: 22px;
   height: 22px;
   flex: none;
-  color: var(--accent);
+  color: var(--gold);
 }
 
 .contact-link > span {

@@ -82,7 +82,7 @@ export function Contact({ index }: { index: number }) {
                 <Icon name="download" />
                 <span>
                   <span className="contact-link-label">{t.contact.cv}</span>
-                  <span className="contact-link-value">Jennifer_Ouedraogo_CV.pdf</span>
+                  <span className="contact-link-value">{profile.cvFile.split('/').pop()}</span>
                 </span>
               </a>
             </li>

@@ -16,8 +16,8 @@ export function Projects({ index }: { index: number }) {
 
         <h3 className="projects-subtitle mono reveal">{t.projects.featured}</h3>
         <div className="projects-grid">
-          {featured.map((p) => (
-            <ProjectCard key={p.slug} project={p} />
+          {featured.map((p, i) => (
+            <ProjectCard key={p.slug} project={p} wide={i === 0 && featured.length % 2 === 1} />
           ))}
         </div>
 

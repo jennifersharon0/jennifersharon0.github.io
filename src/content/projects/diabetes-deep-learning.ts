@@ -3,6 +3,7 @@ import type { Project } from '../types';
 /** Source : Recapitulatif_Projets_Annee.docx §4. */
 export const diabetesDeepLearning: Project = {
   slug: 'diabetes-deep-learning',
+  year: '2025',
   kind: 'academic',
   teamSize: 4,
   featured: true,
@@ -17,6 +18,11 @@ export const diabetesDeepLearning: Project = {
       category: 'Deep Learning · MLOps',
       context: 'Projet académique · CESI · groupe de 4 étudiants',
       cardResult: 'ROC AUC ≈ 0,82 · biais analysés sur 5 attributs sensibles',
+      highlights: [
+        'Préparation sans fuite : ColumnTransformer + RobustScaler, découpage stratifié 70 / 15 / 15, pondération des classes.',
+        'MLP PyTorch optimisé avec Optuna et suivi dans MLflow, comparé à une régression logistique de référence.',
+        'Audit des biais sur 5 attributs sensibles, empreinte carbone (CodeCarbon), DVC, CI/CD, Docker et API FastAPI.',
+      ],
       problem:
         "Prédire l'apparition du diabète à partir de données de santé, en construisant un pipeline complet — du prétraitement jusqu'au déploiement — tout en examinant les biais du modèle et son empreinte carbone.",
       objectives: [
@@ -42,7 +48,7 @@ export const diabetesDeepLearning: Project = {
         {
           title: '2. Préparation sans fuite',
           points: [
-            'Découpage stratifié en trois jeux : 70 % entraînement, 15 % validation, 15 % test.',
+            'Découpage stratifié en trois jeux : 70 % entraînement, 15 % validation, 15 % test.',
             'Pipeline de transformation (ColumnTransformer + RobustScaler) appris sur l’entraînement uniquement.',
             'Export des données prétraitées en CSV pour figer les expérimentations.',
           ],
@@ -114,6 +120,11 @@ export const diabetesDeepLearning: Project = {
       category: 'Deep learning · MLOps',
       context: 'Academic project · CESI · team of 4 students',
       cardResult: 'ROC AUC ≈ 0.82 · bias audited across 5 sensitive attributes',
+      highlights: [
+        'Leak-free preparation: ColumnTransformer + RobustScaler, stratified 70/15/15 split, class weighting.',
+        'A PyTorch MLP tuned with Optuna and tracked in MLflow, compared with a logistic regression baseline.',
+        'Bias audit across 5 sensitive attributes, carbon footprint (CodeCarbon), DVC, CI/CD, Docker and a FastAPI service.',
+      ],
       problem:
         'Predict the onset of diabetes from health data by building a complete pipeline — from preprocessing to deployment — while examining model bias and carbon footprint.',
       objectives: [

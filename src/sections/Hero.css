@@ -27,7 +27,7 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--ok);
+  background: var(--gold);
   flex: none;
 }
 
@@ -36,7 +36,7 @@
   position: absolute;
   inset: -4px;
   border-radius: 50%;
-  border: 1px solid var(--ok);
+  border: 1px solid var(--gold);
   opacity: 0;
   animation: pulse 2.4s var(--ease) infinite;
 }
@@ -63,7 +63,7 @@
 .hero-name span {
   display: block;
   font-style: italic;
-  color: var(--accent);
+  color: var(--accent-hover);
 }
 
 .hero-domain {
@@ -196,8 +196,18 @@
 .fact-value {
   font-size: clamp(1.6rem, 3vw, 2.1rem);
   font-weight: 500;
-  color: var(--accent);
+  color: var(--figure);
   line-height: 1.1;
+}
+
+/* Trait or sous les chiffres clés */
+.fact-value::after {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 2px;
+  margin-top: 10px;
+  background: var(--gold);
 }
 
 .fact-label {
@@ -220,7 +230,7 @@
 
 .fact:hover .fact-arrow {
   transform: translateX(3px);
-  color: var(--accent);
+  color: var(--gold);
 }
 
 @media (max-width: 860px) {

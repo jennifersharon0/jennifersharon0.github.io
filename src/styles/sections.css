@@ -31,9 +31,8 @@
 .section-rule {
   display: block;
   width: 48px;
-  height: 1px;
-  background: currentColor;
-  opacity: 0.6;
+  height: 2px;
+  background: var(--gold);
 }
 
 .section-heading h2 {

@@ -11,12 +11,13 @@ import { useLang } from '../i18n/useLang';
 import { NotFound } from './NotFound';
 import './ProjectPage.css';
 
-type SectionKey = 'problem' | 'objectives' | 'data' | 'approach' | 'results' | 'challenges' | 'learnings' | 'limits' | 'skillsUsed';
+type SectionKey = 'problem' | 'contribution' | 'objectives' | 'data' | 'approach' | 'results' | 'challenges' | 'learnings' | 'limits' | 'skillsUsed';
 
 /** Sections affichées, dans l'ordre, uniquement si le contenu existe. */
 function availableSections(c: ProjectContent): SectionKey[] {
   const keys: [SectionKey, unknown][] = [
     ['problem', c.problem],
+    ['contribution', c.contribution?.length],
     ['objectives', c.objectives?.length],
     ['data', c.data?.length],
     ['approach', c.approach?.length],
@@ -136,6 +137,12 @@ export function ProjectPage() {
           {sections.includes('problem') && (
             <CaseSection id="problem" title={t.project.problem}>
               <p className="case-lead">{c.problem}</p>
+            </CaseSection>
+          )}
+
+          {sections.includes('contribution') && c.contribution && (
+            <CaseSection id="contribution" title={t.project.contribution}>
+              <BulletList items={c.contribution} className="case-contribution" />
             </CaseSection>
           )}
 

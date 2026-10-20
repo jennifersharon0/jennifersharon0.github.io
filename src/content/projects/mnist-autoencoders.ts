@@ -3,6 +3,7 @@ import type { Project } from '../types';
 /** Source : Recapitulatif_Projets_Annee.docx §5. */
 export const mnistAutoencoders: Project = {
   slug: 'mnist-autoencoders',
+  year: '2026',
   kind: 'academic',
   featured: true,
   stack: ['Python', 'TensorFlow / Keras 3', 'scikit-learn', 'NumPy', 'pandas', 'SciPy', 'Matplotlib', 'Seaborn', 'Google Colab', 'Kaggle (GPU T4)'],
@@ -17,6 +18,11 @@ export const mnistAutoencoders: Project = {
       category: 'Deep Learning',
       context: 'Workshop Deep Learning (TensorFlow) · CESI',
       cardResult: 'SVM : 0,982 d’accuracy sur 32 variables apprises, contre 0,962 sur les 784 pixels',
+      highlights: [
+        'ACP et t-SNE comparés aux représentations apprises par un auto-encodeur convolutif et un VAE.',
+        'Protocole équitable : même découpage, même dimension (32 variables), aucune fuite de données.',
+        'Correction du VAE fourni (reparamétrisation, perte KL) et migration du code vers Keras 3.',
+      ],
       problem:
         "Comment représenter des données de très grande dimension de façon plus compacte sans perdre l'information utile ? Une image MNIST de 28 × 28 pixels compte 784 variables, dont beaucoup sont redondantes : l'information porteuse de sens tient dans bien moins de dimensions.",
       objectives: [
@@ -34,7 +40,7 @@ export const mnistAutoencoders: Project = {
         {
           title: '1. Réduction de dimension classique',
           points: [
-            'ACP sur un sous-ensemble de trois chiffres : 34, 70 et 123 composantes suffisent pour conserver 80 %, 90 % et 95 % de la variance.',
+            'ACP sur un sous-ensemble de trois chiffres : 34, 70 et 123 composantes suffisent pour conserver 80 %, 90 % et 95 % de la variance.',
             'Projections 2D et 3D : l’ACP, linéaire, sépare partiellement les chiffres mais laisse d’importants recouvrements.',
             't-SNE réglé sur une grille de 9 configurations (perplexité 5 / 30 / 50 × taux d’apprentissage auto / 200 / 500) : structure stable à partir d’une perplexité de 30, pas de gain réel en 3D.',
           ],
@@ -69,6 +75,7 @@ export const mnistAutoencoders: Project = {
           title: '5. Classification sur les représentations apprises',
           points: [
             'Extraction des codes latents (la moyenne μ pour le VAE) des 10 000 images du CSV, puis mêmes classifieurs, même découpage.',
+            'Réseau de neurones de classification utilisant l’encodeur et le bottleneck de l’AE et du VAE comme données d’entrée, comparé aux modèles de machine learning classiques appliqués à l’ACP.',
             'Références équitables : une ACP de même dimension (32), apprise sur les mêmes images que les auto-encodeurs, et les 784 pixels bruts.',
             'Synthèse sous forme de cartes de chaleur croisant classifieurs et représentations.',
           ],
@@ -111,7 +118,7 @@ export const mnistAutoencoders: Project = {
         'Un seul découpage entraînement / test : une validation croisée confirmerait la robustesse des écarts.',
         'Le paramétrage hérité du Random Forest limite le nombre de variables testées à chaque division ; une reprise avec max_features="sqrt" et un score out-of-bag est prévue.',
         'La dimension latente retenue (32) est en bordure de l’espace de recherche, qu’il faudrait élargir.',
-        'En cours : tête de classification neuronale sur le goulot d’étranglement, fine-tuning de l’encodeur et comparaison avec un CNN entraîné de zéro.',
+        'Pistes : fine-tuning de l’encodeur complet et comparaison avec un CNN entraîné de zéro.',
         'Extensions : auto-encodeur débruitant, images plus complexes que MNIST.',
       ],
       skills:
@@ -125,6 +132,11 @@ export const mnistAutoencoders: Project = {
       category: 'Deep learning',
       context: 'Deep learning workshop (TensorFlow) · CESI',
       cardResult: 'SVM: 0.982 accuracy on 32 learned features vs 0.962 on all 784 pixels',
+      highlights: [
+        'PCA and t-SNE compared with representations learned by a convolutional autoencoder and a VAE.',
+        'A fair protocol: same split, same dimension (32 features), no data leakage.',
+        'Fixed the provided VAE (reparameterisation, KL loss) and migrated the code to Keras 3.',
+      ],
       problem:
         'How can very high-dimensional data be represented more compactly without losing useful information? A 28 × 28 MNIST image has 784 features, many of them redundant: the meaningful information lives in far fewer dimensions.',
       objectives: [
@@ -177,6 +189,7 @@ export const mnistAutoencoders: Project = {
           title: '5. Classification on learned representations',
           points: [
             'Latent codes (the mean μ for the VAE) extracted for the 10,000 CSV images, then the same classifiers on the same split.',
+            'A neural classification network taking the AE and VAE encoder and bottleneck as input, compared with classical machine learning models applied to PCA.',
             'Fair baselines: a PCA with the same dimension (32), fitted on the same images as the autoencoders, and the 784 raw pixels.',
             'Results summarised as heatmaps crossing classifiers and representations.',
           ],
@@ -219,7 +232,7 @@ export const mnistAutoencoders: Project = {
         'A single train/test split: cross-validation would confirm the gaps are robust.',
         'The inherited random forest settings limit the features tried at each split; a rerun with max_features="sqrt" and an out-of-bag score is planned.',
         'The chosen latent size (32) sits at the edge of the search space, which should be widened.',
-        'In progress: a neural classification head on the bottleneck, fine-tuning the full encoder, and a comparison with a CNN trained from scratch.',
+        'Next steps: fine-tuning the full encoder and comparing with a CNN trained from scratch.',
         'Extensions: a denoising autoencoder and images more complex than MNIST.',
       ],
       skills:

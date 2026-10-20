@@ -65,6 +65,7 @@ h3 {
   letter-spacing: -0.015em;
   line-height: 1.12;
   text-wrap: balance;
+  color: var(--heading);
 }
 
 h4 {
@@ -78,6 +79,7 @@ p {
 
 a {
   color: var(--accent);
+  text-decoration-color: var(--gold);
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
 }
@@ -87,14 +89,14 @@ a:hover {
 }
 
 :focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 2px solid var(--focus);
   outline-offset: 3px;
   border-radius: 4px;
 }
 
 ::selection {
-  background: var(--accent);
-  color: var(--accent-ink);
+  background: var(--btn-bg);
+  color: var(--btn-ink);
 }
 
 button {
@@ -142,15 +144,15 @@ button {
   z-index: 200;
   padding: 10px 16px;
   border-radius: var(--radius-s);
-  background: var(--accent);
-  color: var(--accent-ink);
+  background: var(--btn-bg);
+  color: var(--btn-ink);
   font-weight: 600;
   text-decoration: none;
 }
 
 .skip-link:focus {
   top: 12px;
-  color: var(--accent-ink);
+  color: var(--btn-ink);
 }
 
 /* ---------- Boutons ---------- */
@@ -182,24 +184,24 @@ button {
 }
 
 .btn-primary {
-  background: var(--accent);
-  color: var(--accent-ink);
+  background: var(--btn-bg);
+  color: var(--btn-ink);
 }
 
 .btn-primary:hover {
-  background: var(--accent-hover);
-  color: var(--accent-ink);
+  background: var(--btn-bg-hover);
+  color: var(--btn-ink);
 }
 
 .btn-ghost {
-  border-color: var(--line-strong);
+  border-color: var(--gold);
   color: var(--ink);
   background: transparent;
 }
 
 .btn-ghost:hover {
-  border-color: var(--ink);
-  color: var(--ink);
+  border-color: var(--accent);
+  color: var(--accent);
 }
 
 .btn:active {
@@ -224,8 +226,8 @@ button {
 }
 
 .icon-btn:hover {
-  border-color: var(--line-strong);
-  color: var(--ink);
+  border-color: var(--gold);
+  color: var(--accent);
   background: var(--surface);
 }
 
@@ -257,9 +259,9 @@ button {
   align-items: center;
   padding: 3px 10px;
   border-radius: 999px;
-  border: 1px solid var(--line);
+  border: 1px solid var(--gold);
   background: var(--surface-2);
-  color: var(--ink-2);
+  color: var(--ink);
   font-family: var(--font-mono);
   font-size: 0.75rem;
   line-height: 1.6;

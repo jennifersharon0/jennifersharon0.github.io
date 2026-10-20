@@ -1,7 +1,14 @@
 /* ==========================================================================
-   Design tokens — thème clair par défaut, thème sombre via préférence système
-   ou choix explicite (data-theme sur <html>).
-   Contrastes vérifiés (WCAG AA) : texte secondaire ≥ 5:1, accent ≥ 6,7:1.
+   Design tokens — palette bordeaux & or doux.
+   Thème clair par défaut, thème sombre via préférence système ou choix explicite
+   (data-theme sur <html>).
+
+   Contrastes vérifiés (WCAG AA) :
+     bordeaux / ivoire 11,9:1 · ivoire / bordeaux (boutons) 11,9:1 · or / bordeaux 5,3:1
+     texte secondaire / ivoire 6,7:1 · texte secondaire / sable 6,0:1
+     sombre : texte 15,3:1 · or 7,5:1 · texte / bordeaux éclairci (boutons) 4,7:1
+   Règle : l'or n'est jamais utilisé pour du texte sur fond clair (2,2:1 seulement) ;
+   il sert aux soulignements, bordures, icônes accompagnées d'un libellé et puces.
    ========================================================================== */
 
 :root {
@@ -19,83 +26,127 @@
   --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
   --dur: 200ms;
 
-  color-scheme: light;
-  --bg: #f5f3ee;
-  --bg-alt: #efece5;
-  --surface: #fffdf9;
-  --surface-2: #f9f7f2;
-  --ink: #15171c;
-  --ink-2: #3a3f4a;
-  --muted: #5f6572;
-  --line: #e1ddd3;
-  --line-strong: #cbc6ba;
-  --accent: #2f45c9;
-  --accent-hover: #2337a8;
-  --accent-ink: #ffffff;
-  --accent-soft: #e7e9f8;
-  --ok: #1d7a46;
-  --dot: rgba(21, 23, 28, 0.16);
-  --dot-accent: rgba(47, 69, 201, 0.55);
-  --shadow: 0 1px 2px rgba(21, 23, 28, 0.04), 0 8px 24px -12px rgba(21, 23, 28, 0.12);
-  --shadow-hover: 0 2px 4px rgba(21, 23, 28, 0.05), 0 18px 40px -16px rgba(21, 23, 28, 0.22);
-  --header-bg: rgba(245, 243, 238, 0.82);
+  /* ---- Palette (valeurs de référence) ---- */
+  --burgundy: #5b1a3a;
+  --burgundy-hover: #7a2550;
+  --burgundy-light: #a8486f;
+  --gold: #c9a24d;
+  --ivory: #faf7f2;
+  --sand: #f1eae0;
+  --anthracite: #1f2328;
+  --text-secondary: #5c5560;
+  --border: #e5ddd2;
 
-  /* Graphiques — palette validée (séparation daltonisme, contraste ≥ 3:1) */
-  --chart-accent: #2f45c9;
-  --chart-base: #7b818d;
-  --chart-grid: #e6e2d9;
+  /* ---- Rôles (thème clair) ---- */
+  color-scheme: light;
+  --bg: var(--ivory);
+  --bg-alt: var(--sand);
+  --surface: var(--sand);
+  --surface-2: var(--ivory);
+  --ink: var(--anthracite);
+  --ink-2: var(--text-secondary);
+  --muted: var(--text-secondary);
+  --line: var(--border);
+  --line-strong: var(--gold);
+  --heading: var(--burgundy);
+  --accent: var(--burgundy);
+  --accent-hover: var(--burgundy-hover);
+  --btn-bg: var(--burgundy);
+  --btn-bg-hover: var(--burgundy-hover);
+  --btn-ink: var(--ivory);
+  --figure: var(--burgundy);
+  --callout-bg: var(--ivory);
+  --focus: var(--burgundy);
+  --nav-bg: rgba(91, 26, 58, 0.97);
+  --nav-ink: var(--ivory);
+  --nav-accent: var(--gold);
+  --dot: rgba(31, 35, 40, 0.14);
+  --dot-accent: rgba(201, 162, 77, 0.85);
+  --shadow: 0 1px 2px rgba(31, 35, 40, 0.04), 0 8px 24px -12px rgba(91, 26, 58, 0.14);
+  --shadow-hover: 0 2px 4px rgba(31, 35, 40, 0.05), 0 18px 40px -16px rgba(91, 26, 58, 0.26);
+
+  /* Graphiques — mise en avant bordeaux contre référence grise (validées : séparation daltonisme, contraste ≥ 3:1) */
+  --chart-accent: var(--burgundy-hover);
+  --chart-base: #8a8288;
+  --chart-grid: var(--border);
 }
 
+/* Sections alternées (fond sable) : les cartes passent en ivoire pour rester distinctes */
+.section-alt {
+  --surface: var(--ivory);
+  --surface-2: var(--sand);
+}
+
+/* Thème sombre : fond #1E1418, texte #F3ECE4, accents or doux, bordeaux éclairci #A8486F
+   (réservé aux boutons et décors : 3,3:1 seulement en texte sur le fond sombre). */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme='light']) {
     color-scheme: dark;
-    --bg: #0e1014;
-    --bg-alt: #121419;
-    --surface: #15181e;
-    --surface-2: #1a1d24;
-    --ink: #eceae4;
-    --ink-2: #c6c8ce;
-    --muted: #9298a5;
-    --line: #262a33;
-    --line-strong: #353a45;
-    --accent: #8c9bff;
-    --accent-hover: #a7b3ff;
-    --accent-ink: #0e1014;
-    --accent-soft: #1c2140;
-    --ok: #4ade80;
-    --dot: rgba(236, 234, 228, 0.13);
-    --dot-accent: rgba(140, 155, 255, 0.6);
+    --bg: #1e1418;
+    --bg-alt: #24181e;
+    --surface: #2a1d23;
+    --surface-2: #33242b;
+    --ink: #f3ece4;
+    --ink-2: #d8cdc4;
+    --muted: #b7aaa9;
+    --line: #3d2c34;
+    --line-strong: var(--gold);
+    --heading: #f3ece4;
+    --accent: var(--gold);
+    --accent-hover: #ddbd72;
+    --btn-bg: var(--burgundy-light);
+    --btn-bg-hover: #8f3a5d;
+    --btn-ink: #f3ece4;
+    --figure: var(--gold);
+    --callout-bg: #33242b;
+    --focus: var(--gold);
+    --nav-bg: rgba(91, 26, 58, 0.97);
+    --dot: rgba(243, 236, 228, 0.12);
+    --dot-accent: rgba(201, 162, 77, 0.8);
     --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px -12px rgba(0, 0, 0, 0.5);
     --shadow-hover: 0 2px 4px rgba(0, 0, 0, 0.35), 0 18px 40px -16px rgba(0, 0, 0, 0.7);
-    --header-bg: rgba(14, 16, 20, 0.8);
-    --chart-accent: #7183f0;
-    --chart-base: #6e7383;
-    --chart-grid: #262a33;
+    --chart-accent: var(--gold);
+    --chart-base: #7d7178;
+    --chart-grid: #3d2c34;
+  }
+
+  :root:not([data-theme='light']) .section-alt {
+    --surface: #2a1d23;
+    --surface-2: #33242b;
   }
 }
 
 :root[data-theme='dark'] {
   color-scheme: dark;
-  --bg: #0e1014;
-  --bg-alt: #121419;
-  --surface: #15181e;
-  --surface-2: #1a1d24;
-  --ink: #eceae4;
-  --ink-2: #c6c8ce;
-  --muted: #9298a5;
-  --line: #262a33;
-  --line-strong: #353a45;
-  --accent: #8c9bff;
-  --accent-hover: #a7b3ff;
-  --accent-ink: #0e1014;
-  --accent-soft: #1c2140;
-  --ok: #4ade80;
-  --dot: rgba(236, 234, 228, 0.13);
-  --dot-accent: rgba(140, 155, 255, 0.6);
+  --bg: #1e1418;
+  --bg-alt: #24181e;
+  --surface: #2a1d23;
+  --surface-2: #33242b;
+  --ink: #f3ece4;
+  --ink-2: #d8cdc4;
+  --muted: #b7aaa9;
+  --line: #3d2c34;
+  --line-strong: var(--gold);
+  --heading: #f3ece4;
+  --accent: var(--gold);
+  --accent-hover: #ddbd72;
+  --btn-bg: var(--burgundy-light);
+  --btn-bg-hover: #8f3a5d;
+  --btn-ink: #f3ece4;
+  --figure: var(--gold);
+  --callout-bg: #33242b;
+  --focus: var(--gold);
+  --nav-bg: rgba(91, 26, 58, 0.97);
+  --dot: rgba(243, 236, 228, 0.12);
+  --dot-accent: rgba(201, 162, 77, 0.8);
   --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px -12px rgba(0, 0, 0, 0.5);
   --shadow-hover: 0 2px 4px rgba(0, 0, 0, 0.35), 0 18px 40px -16px rgba(0, 0, 0, 0.7);
-  --header-bg: rgba(14, 16, 20, 0.8);
-  --chart-accent: #7183f0;
-  --chart-base: #6e7383;
-  --chart-grid: #262a33;
+  --chart-accent: var(--gold);
+  --chart-base: #7d7178;
+  --chart-grid: #3d2c34;
+}
+
+:root[data-theme='dark'] .section-alt {
+  --surface: #2a1d23;
+  --surface-2: #33242b;
 }

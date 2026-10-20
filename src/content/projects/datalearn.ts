@@ -18,6 +18,11 @@ export const datalearn: Project = {
       category: 'IA générative · Application data',
       context: 'Projet personnel mené seule, de la conception à la mise en production',
       cardResult: '190 quiz conformes à tous les contrôles qualité · 49 tests automatisés',
+      highlights: [
+        'Pipeline de génération de 190 leçons et quiz par LLM, avec contrôle qualité automatique et corrections ciblées.',
+        'API FastAPI sécurisée : correction des quiz côté serveur, jetons vérifiés, isolation des données, limiteur de débit.',
+        'Tableau de bord React en SVG sans bibliothèque, 49 tests pytest, déploiement sur Render et Vercel.',
+      ],
       problem:
         "En cours, en stage ou dans les offres d'emploi, j'entendais régulièrement parler de web scraping, d'embeddings, de RAG ou de MLOps sans toujours savoir ce que ces notions recouvraient ni par où commencer. Les ressources existent, mais elles sont dispersées, de niveaux inégaux, et rarement accompagnées d'un moyen de vérifier ce que l'on a vraiment retenu.",
       objectives: [
@@ -64,7 +69,7 @@ export const datalearn: Project = {
           points: [
             "Requêtes d'agrégation (GROUP BY, BOOL_OR, MAX, COUNT … FILTER) produisant en une seule lecture l'état de chaque sujet, l'activité jour par jour sur douze semaines et l'historique des quiz.",
             'Requêtes paramétrées, ce qui écarte le risque d’injection SQL.',
-            'Indicateurs : série de jours consécutifs, part des notions étudiées, part des quiz réussis (seuil 70 %), score moyen et son évolution.',
+            'Indicateurs : série de jours consécutifs, part des notions étudiées, part des quiz réussis (seuil 70 %), score moyen et son évolution.',
           ],
         },
         {
@@ -150,6 +155,11 @@ export const datalearn: Project = {
       category: 'Generative AI · Data application',
       context: 'Solo personal project, from design to production',
       cardResult: 'All 190 quizzes pass every quality check · 49 automated tests',
+      highlights: [
+        'A pipeline generating 190 lessons and quizzes with an LLM, with automated quality checks and targeted fixes.',
+        'A secure FastAPI backend: server-side grading, verified tokens, per-user data isolation, rate limiting.',
+        'A React dashboard drawn in raw SVG, 49 pytest tests, deployed on Render and Vercel.',
+      ],
       problem:
         "In class, during my internship and in job ads, I kept hearing about web scraping, embeddings, RAG or MLOps without always knowing what they meant or where to start. Resources exist, but they are scattered, uneven in quality and rarely come with a way to check what you've actually understood.",
       objectives: [
