@@ -12,7 +12,7 @@ const fr = {
     siteName: 'Jennifer Ouedraogo, Data Science & Machine Learning',
     homeTitle: 'Jennifer Ouedraogo · Data Science & Machine Learning',
     homeDescription:
-      "Portfolio de Jennifer Ouedraogo, élève ingénieure en Data Science & IA au CESI : machine learning explicable, deep learning, LLM appliqués et applications data mises en production. Recherche un stage de fin d'études de 6 mois en Data Science / Machine Learning Engineering (à partir de février 2027).",
+      "Portfolio de Jennifer Ouedraogo, élève ingénieure en Data Science & IA au CESI : machine learning explicable, deep learning, LLM appliqués et applications data mises en production. Recherche un stage de fin d'études de 6 mois en Data Science / Machine Learning Engineering (démarrage possible entre février et début avril 2027).",
     projectTitleSuffix: 'Étude de cas · Jennifer Ouedraogo',
     locale: 'fr_FR',
   },
@@ -36,7 +36,7 @@ const fr = {
     cv: 'CV',
   },
   hero: {
-    availability: "Recherche un stage de fin d'études · 6 mois · à partir de février 2027",
+    availability: "Recherche un stage de fin d'études · 6 mois · démarrage possible entre février et début avril 2027",
     seeProjects: 'Découvrir mes projets',
     downloadCv: 'Télécharger mon CV',
     factsLabel: 'Quelques résultats issus de mes projets',
@@ -116,7 +116,7 @@ const fr = {
     experience: 'Expérience professionnelle',
   },
   contact: {
-    lead: "Je recherche un stage de fin d'études de 6 mois en Data Science / Machine Learning Engineering à partir de février 2027. Le plus simple pour me joindre est l'e-mail.",
+    lead: "Je recherche un stage de fin d'études de 6 mois en Data Science / Machine Learning Engineering, avec un démarrage possible entre février et début avril 2027. Le plus simple pour me joindre est l'e-mail.",
     email: 'E-mail',
     linkedin: 'LinkedIn',
     github: 'GitHub',
@@ -125,7 +125,7 @@ const fr = {
     copied: 'Adresse copiée',
     copyFailed: 'Copie impossible, sélectionnez l’adresse à la main',
     write: "M'écrire",
-    location: 'Basée à',
+    location: 'Basée en',
   },
   footer: {
     built: 'Conçu et développé avec React, TypeScript et Vite · hébergé sur GitHub Pages',
@@ -145,7 +145,7 @@ const en: UiStrings = {
     siteName: 'Jennifer Ouedraogo, Data Science & Machine Learning',
     homeTitle: 'Jennifer Ouedraogo · Data Science & Machine Learning',
     homeDescription:
-      'Portfolio of Jennifer Ouedraogo, Data Science & AI engineering student at CESI: explainable machine learning, deep learning, applied LLMs and data applications shipped to production. Looking for a 6-month end-of-studies internship in Data Science / Machine Learning Engineering (from February 2027).',
+      'Portfolio of Jennifer Ouedraogo, Data Science & AI engineering student at CESI: explainable machine learning, deep learning, applied LLMs and data applications shipped to production. Looking for a 6-month end-of-studies internship in Data Science / Machine Learning Engineering (possible start between February and early April 2027).',
     projectTitleSuffix: 'Case study · Jennifer Ouedraogo',
     locale: 'en_US',
   },
@@ -169,7 +169,7 @@ const en: UiStrings = {
     cv: 'Resume',
   },
   hero: {
-    availability: 'Looking for an end-of-studies internship · 6 months · from February 2027',
+    availability: 'Looking for an end-of-studies internship · 6 months · possible start between February and early April 2027',
     seeProjects: 'Explore my projects',
     downloadCv: 'Download my resume',
     factsLabel: 'A few results from my projects',
@@ -249,7 +249,7 @@ const en: UiStrings = {
     experience: 'Work experience',
   },
   contact: {
-    lead: "I'm looking for a 6-month end-of-studies internship in Data Science / Machine Learning Engineering starting February 2027. Email is the best way to reach me.",
+    lead: "I'm looking for a 6-month end-of-studies internship in Data Science / Machine Learning Engineering, with a possible start between February and early April 2027. Email is the best way to reach me.",
     email: 'Email',
     linkedin: 'LinkedIn',
     github: 'GitHub',

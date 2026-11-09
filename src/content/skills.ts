@@ -54,7 +54,7 @@ export const skillGroups: SkillGroup[] = [
       { name: 'CNN', projects: ['leyenda-computer-vision'] },
       { name: 'Auto-encodeurs · UNet', projects: ['leyenda-computer-vision', 'mnist-autoencoders'] },
       { name: 'RNN (GRU) · attention', projects: ['leyenda-computer-vision'] },
-      { name: 'Transfer learning (EfficientNetB0)', projects: ['leyenda-computer-vision'] },
+      { name: 'Transfer learning (EfficientNetB3)', projects: ['leyenda-computer-vision'] },
       { name: 'MLP', projects: ['diabetes-deep-learning'] },
       { name: 'OpenCV · Pillow · scikit-image', projects: ['leyenda-computer-vision'] },
     ],

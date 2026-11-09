@@ -70,6 +70,7 @@ export const hrAttrition: Project = {
       ],
       results: [
         'Le Random Forest optimisé obtient les meilleures performances sur le meilleur compromis entre precision et recall.',
+        'Le Random Forest optimisé atteint une AUC de 0,85, et la régression logistique un rappel de 0,74.',
         "L'attrition apparaît liée à un cumul de signaux faibles : charge de travail excessive, relation managériale instable, manque de perspectives de carrière, reconnaissance salariale ou promotion insuffisante, et signaux comportementaux comme les absences ou les retards.",
         'Ces facteurs ont été traduits en recommandations concrètes pour les équipes RH.',
       ],
@@ -160,6 +161,7 @@ export const hrAttrition: Project = {
       ],
       results: [
         'The tuned random forest performed best, offering the best balance between precision and recall.',
+        'The tuned random forest reached an AUC of 0.85, and logistic regression a recall of 0.74.',
         'Attrition turned out to be driven by an accumulation of weak signals: excessive workload, unstable relationships with managers, lack of career prospects, insufficient pay recognition or promotion, and behavioural signals such as absences and late arrivals.',
         'These factors were turned into concrete recommendations for HR teams.',
       ],

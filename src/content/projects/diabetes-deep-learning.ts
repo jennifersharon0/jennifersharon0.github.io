@@ -21,7 +21,7 @@ export const diabetesDeepLearning: Project = {
       highlights: [
         'Préparation sans fuite : ColumnTransformer + RobustScaler, découpage stratifié 70 / 15 / 15, pondération des classes.',
         'MLP PyTorch optimisé avec Optuna et suivi dans MLflow, comparé à une régression logistique de référence.',
-        'Audit des biais sur 5 attributs sensibles, empreinte carbone (CodeCarbon), DVC, CI/CD, Docker et API FastAPI.',
+        'Audit des biais sur 5 attributs sensibles, empreinte carbone (CodeCarbon), DVC, CI/CD, Docker et structure d’une API FastAPI.',
       ],
       problem:
         "Prédire l'apparition du diabète à partir de données de santé, en construisant un pipeline complet, du prétraitement jusqu'au déploiement, tout en examinant les biais du modèle et son empreinte carbone.",
@@ -82,11 +82,14 @@ export const diabetesDeepLearning: Project = {
       ],
       results: [
         'Meilleur modèle : ROC AUC autour de 0,82.',
+        'Au seuil fixé par l’indice de Youden, le modèle atteint un rappel de 0,81 sur les patients diabétiques.',
+        'L’audit des biais met en évidence un écart net : chez les jeunes adultes, seulement 46 % des cas sont détectés.',
         'Le rapport de classification met en évidence le compromis precision / recall sur la classe minoritaire (patients diabétiques).',
         'Un rapport de biais couvrant cinq attributs sensibles et une estimation chiffrée du coût carbone de l’inférence accompagnent le modèle.',
       ],
       keyFigures: [
         { value: '0,82', label: 'de ROC AUC pour le meilleur modèle' },
+        { value: '0,81', label: 'de rappel au seuil fixé par l’indice de Youden' },
         { value: '70 / 15 / 15', label: 'découpage stratifié (%)' },
         { value: '5', label: 'attributs sensibles audités' },
       ],
@@ -123,7 +126,7 @@ export const diabetesDeepLearning: Project = {
       highlights: [
         'Leak-free preparation: ColumnTransformer + RobustScaler, stratified 70/15/15 split, class weighting.',
         'A PyTorch MLP tuned with Optuna and tracked in MLflow, compared with a logistic regression baseline.',
-        'Bias audit across 5 sensitive attributes, carbon footprint (CodeCarbon), DVC, CI/CD, Docker and a FastAPI service.',
+        'Bias audit across 5 sensitive attributes, carbon footprint (CodeCarbon), DVC, CI/CD, Docker and the structure of a FastAPI API.',
       ],
       problem:
         'Predict the onset of diabetes from health data by building a complete pipeline, from preprocessing to deployment, while examining model bias and carbon footprint.',
@@ -184,11 +187,14 @@ export const diabetesDeepLearning: Project = {
       ],
       results: [
         'Best model: ROC AUC of around 0.82.',
+        'At the threshold set with Youden’s index, the model reaches a recall of 0.81 on diabetic patients.',
+        'The bias audit revealed a clear gap: among young adults, only 46% of cases are detected.',
         'The classification report highlights the precision / recall trade-off on the minority class (diabetic patients).',
         'The model ships with a bias report covering five sensitive attributes and a quantified estimate of its inference carbon cost.',
       ],
       keyFigures: [
         { value: '0.82', label: 'ROC AUC for the best model' },
+        { value: '0.81', label: 'recall at the threshold set with Youden’s index' },
         { value: '70 / 15 / 15', label: 'stratified split (%)' },
         { value: '5', label: 'sensitive attributes audited' },
       ],

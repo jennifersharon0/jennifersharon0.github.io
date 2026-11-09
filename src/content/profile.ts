@@ -15,7 +15,7 @@ export const profile = {
   github: 'https://github.com/jennifersharon0',
   /** Fichier publié dans public/ ; pour changer de CV, déposer le PDF dans public/cv/ et mettre à jour ce chemin. */
   cvFile: 'cv/CV_Jennifer_OUEDRAOGO_Data_Science.pdf',
-  location: 'Paris, France',
+  location: 'France',
 };
 
 export interface HeroContent {
@@ -34,7 +34,7 @@ export const hero: Localized<HeroContent> = {
     lead:
       "Je mène des projets de machine learning, de deep learning, de computer vision et d'IA générative, de l'analyse des données à la mise en production. J'évalue mes modèles avec rigueur, en évitant les fuites de données et en les comparant à des références, et j'écris un code Python et SQL fiable et testé.",
     facts: [
-      { value: '92,8 %', label: 'd’accuracy pour un CNN entraîné de zéro sur 41 000 images en 5 classes', slug: 'leyenda-computer-vision' },
+      { value: '92,8 %', label: 'd’accuracy pour un CNN entraîné de zéro sur près de 40 000 images en 5 classes', slug: 'leyenda-computer-vision' },
       { value: '0,82', label: 'de ROC AUC pour prédire le diabète avec un réseau PyTorch', slug: 'diabetes-deep-learning' },
       { value: '190', label: 'notions de data science générées puis vérifiées automatiquement dans DataLearn', slug: 'datalearn' },
     ],
@@ -46,7 +46,7 @@ export const hero: Localized<HeroContent> = {
     lead:
       'I work on machine learning, deep learning, computer vision and generative AI projects, from data analysis all the way to production. I evaluate my models carefully, avoiding data leakage and comparing them against baselines, and I write reliable, tested Python and SQL.',
     facts: [
-      { value: '92.8%', label: 'accuracy of a CNN trained from scratch on 41,000 images in 5 classes', slug: 'leyenda-computer-vision' },
+      { value: '92.8%', label: 'accuracy of a CNN trained from scratch on nearly 40,000 images in 5 classes', slug: 'leyenda-computer-vision' },
       { value: '0.82', label: 'ROC AUC for diabetes prediction with a PyTorch network', slug: 'diabetes-deep-learning' },
       { value: '190', label: 'data science topics generated and automatically checked in DataLearn', slug: 'datalearn' },
     ],

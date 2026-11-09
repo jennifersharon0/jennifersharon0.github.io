@@ -7,21 +7,21 @@ export const leyendaComputerVision: Project = {
   kind: 'academic',
   teamSize: 4,
   featured: true,
-  stack: ['TensorFlow / Keras', 'Keras Tuner', 'Optuna', 'CNN', 'UNet', 'EfficientNetB0', 'GRU + attention', 'tf.data', 'scikit-learn', 'OpenCV', 'Pillow', 'NLTK', 'Gradio'],
+  stack: ['TensorFlow / Keras', 'Keras Tuner', 'Optuna', 'CNN', 'UNet', 'EfficientNetB3', 'GRU + attention', 'tf.data', 'scikit-learn', 'OpenCV', 'Pillow', 'NLTK', 'Gradio'],
   links: [],
   content: {
     fr: {
       title: 'Leyenda, un pipeline de computer vision pour trier, restaurer et légender des images',
       shortTitle: 'Computer vision Leyenda',
       summary:
-        "Trois modèles enchaînés en un pipeline réutilisable : un CNN qui trie 41 000 images numérisées à 92,8 %, un UNet qui gagne 6,3 dB de PSNR sans image de référence, et un modèle de légendage avec attention entraîné sur les 123 000 images de MS COCO.",
+        "Trois modèles enchaînés en un pipeline réutilisable : un CNN qui trie près de 40 000 images numérisées à 92,8 %, un UNet qui atteint un PSNR de 30,95 dB contre 27,90 dB pour la méthode classique NL-Means, sans image de référence, et un modèle de légendage avec attention entraîné sur les 123 000 images de MS COCO.",
       category: 'Deep Learning · Computer vision · NLP',
       context: 'Projet académique · CESI · équipe de 4 · de fin septembre à octobre 2026 · client fictif TouNum',
-      cardResult: '92,8 % d’accuracy en 5 classes, +6,3 dB de PSNR en restauration et un BLEU-4 de 0,271 en légendage.',
+      cardResult: '92,8 % d’accuracy en 5 classes, un PSNR de 30,95 dB en restauration (contre 27,90 dB pour NL-Means) et un BLEU-4 de 0,350 en légendage.',
       highlights: [
-        'Tri de 41 000 images en 5 classes par un CNN entraîné de zéro, avec un seuil de confiance qui automatise 84 % des cas.',
+        'Tri de près de 40 000 images en 5 classes par un CNN entraîné de zéro, avec un seuil de confiance qui automatise 84 % des cas.',
         'Restauration d’images sans version propre de référence : dégradation synthétique réaliste, UNet optimisé avec Optuna.',
-        'Légendage automatique (EfficientNetB0, attention de Bahdanau, GRU) sur MS COCO, intégré dans un pipeline réutilisable.',
+        'Légendage automatique (EfficientNetB3, attention de Bahdanau, GRU) sur MS COCO, intégré dans un pipeline réutilisable.',
       ],
       problem:
         "TouNum, entreprise de numérisation de documents, reçoit des archives de toutes natures. Elle veut ne garder que les photographies, les nettoyer, puis leur associer automatiquement une légende pour les rendre faciles à rechercher. Chaque livrable construit un maillon de cette chaîne : tri (Livrable 1), restauration (Livrable 2), légendage (Livrable 3), ce dernier réutilisant les deux premiers modèles.",
@@ -63,7 +63,7 @@ export const leyendaComputerVision: Project = {
           points: [
             'Pipeline de bout en bout : vérification de chaque fichier avec Pillow, tri par le CNN du Livrable 1 (116 503 photos gardées, 6 784 écartées), puis débruitage par l’autoencodeur du Livrable 2 (UNet résiduel « aveugle », environ 29 dB à σ = 0,1, qui modifie très peu les images déjà propres).',
             'Prétraitement du texte : minuscules, suppression de la ponctuation, des chiffres, des légendes trop courtes et des doublons (582 531 légendes gardées) ; vocabulaire de 9 127 mots construit sur l’entraînement uniquement ; longueur maximale de 21 mots couvrant 99 % des légendes.',
-            'Extraction de caractéristiques par EfficientNetB0 préentraîné sur ImageNet et figé (49 zones de 1 280 caractéristiques), choisi face à InceptionV3 : même BLEU-4 avec 4 fois moins de paramètres et des caractéristiques 2 fois moins lourdes ; stockage en float16 (14,6 Go) avec un calcul reprenable.',
+            'Extraction de caractéristiques par EfficientNetB3 préentraîné sur ImageNet et figé, choisi après comparaison avec EfficientNetB0 et InceptionV3 ; stockage en float16 avec un calcul reprenable.',
             'Architecture encodeur-décodeur : encodeur CNN (Dense 256), attention de Bahdanau qui choisit à chaque mot les zones de l’image à regarder, décodeur GRU (512 unités) préféré au LSTM pour ses 25 % de paramètres en moins à performance égale. Le modèle compte environ 9,6 millions de paramètres.',
             'Entraînement par teacher forcing, perte d’entropie croisée masquée sur le padding, Adam avec gradient clipping, dropout, early stopping avec retour aux meilleurs poids et sauvegarde à chaque epoch (466 025 paires image-légende).',
             'Beam search (k = 3) implémenté, et visualisation des cartes d’attention mot par mot pour vérifier où le modèle regarde.',
@@ -81,15 +81,15 @@ export const leyendaComputerVision: Project = {
       results: [
         'Classification en cinq catégories : CNN optimisé retenu, 92,8 % d’accuracy sur le test (intervalle de confiance à 95 % de 91,2 à 94,3 % par bootstrap), 90,5 % sur des images jamais vues, pour un modèle de 1,6 Mo.',
         'Avec un seuil de confiance à 80 %, 84 % des images sont classées automatiquement avec environ 98 % de réussite ; le reste part en vérification humaine.',
-        'Restauration : UNet optimisé, +6,3 dB de PSNR moyen sur l’image dégradée et +3 dB sur le meilleur filtre classique, avec 4 fois moins de paramètres que sa version de base et le temps d’inférence le plus court des meilleurs modèles ; +10 à 12 dB en débruitage.',
-        'Légendage : BLEU-1 de 0,689 et BLEU-4 de 0,255 en génération gloutonne sur le test ; BLEU-4 de 0,271 avec le beam search, soit +1,6 point.',
+        'Restauration : UNet optimisé, un PSNR de 30,95 dB contre 27,90 dB pour la méthode classique NL-Means, avec le temps d’inférence le plus rapide des meilleurs modèles (111 ms par mégapixel) et 4 fois moins de paramètres que sa version de base ; +10 à 12 dB en débruitage.',
+        'Légendage : BLEU-4 de 0,350 sur 5 000 images de test.',
         'Plus de 80 % des émissions carbone estimées du Livrable 1 proviennent de la recherche d’hyperparamètres.',
       ],
       keyFigures: [
         { value: '92,8 %', label: 'd’accuracy en 5 classes (intervalle de confiance à 95 % : de 91,2 à 94,3)' },
         { value: '84 %', label: 'des images classées automatiquement à ~98 % de réussite' },
-        { value: '+6,3 dB', label: 'de PSNR avec un UNet 4 fois plus léger' },
-        { value: '0,271', label: 'BLEU-4 en beam search sur MS COCO' },
+        { value: '30,95 dB', label: 'de PSNR, contre 27,90 dB pour la méthode classique NL-Means' },
+        { value: '0,350', label: 'BLEU-4 sur 5 000 images de test' },
       ],
       contribution: [
         'Livrable 1 : préparation des données de la classe Sketch dans le prétraitement commun, puis conception et réalisation complète de la classification en cinq catégories : quatre modèles, recherche d’hyperparamètres, évaluation, analyse des erreurs et règle de décision par seuil de confiance.',
@@ -111,7 +111,7 @@ export const leyendaComputerVision: Project = {
         },
         {
           problem: 'Les caractéristiques de tout COCO représentaient un volume considérable et un calcul long, exposé aux interruptions.',
-          solution: 'EfficientNetB0 plutôt qu’InceptionV3 (caractéristiques 2 fois moins lourdes), stockage en float16 et calcul reprenable.',
+          solution: 'EfficientNetB3, choisi après comparaison avec EfficientNetB0 et InceptionV3, caractéristiques stockées en float16 et calcul reprenable.',
         },
         {
           problem: 'Les modèles entraînés sous Keras 3 devaient être rechargés sous TensorFlow 2.10 (GPU sous Windows).',
@@ -130,20 +130,20 @@ export const leyendaComputerVision: Project = {
         'Le débruiteur ne traite ni le bruit impulsionnel (sel et poivre) ni le flou fort, et le défloutage reste limité (+1 à 3 dB) : les détails effacés ne peuvent pas être recréés exactement.',
       ],
       skills:
-        'Computer vision et deep learning (CNN, autoencodeurs, UNet, attention, RNN/GRU), NLP (nettoyage de texte, tokenisation, génération de séquences, beam search), transfer learning (EfficientNetB0), classification d’images sur données déséquilibrées, restauration d’images, image captioning, optimisation d’hyperparamètres (Keras Tuner, Optuna), évaluation statistique (bootstrap, test de McNemar, PSNR, SSIM, BLEU), prévention des fuites de données, traitement de gros volumes (tf.data, memmap, calculs reprenables), industrialisation d’un pipeline ML, travail en équipe et fusion de travaux.',
+        'Computer vision et deep learning (CNN, autoencodeurs, UNet, attention, RNN/GRU), NLP (nettoyage de texte, tokenisation, génération de séquences, beam search), transfer learning (EfficientNetB3), classification d’images sur données déséquilibrées, restauration d’images, image captioning, optimisation d’hyperparamètres (Keras Tuner, Optuna), évaluation statistique (bootstrap, test de McNemar, PSNR, SSIM, BLEU), prévention des fuites de données, traitement de gros volumes (tf.data, memmap, calculs reprenables), industrialisation d’un pipeline ML, travail en équipe et fusion de travaux.',
     },
     en: {
       title: 'Leyenda, a computer vision pipeline that sorts, restores and captions images',
       shortTitle: 'Leyenda computer vision',
       summary:
-        'Three models chained into a reusable pipeline: a CNN that sorts 41,000 scanned images at 92.8% accuracy, a UNet that gains 6.3 dB of PSNR with no clean reference images, and an attention-based captioning model trained on the 123,000 images of MS COCO.',
+        'Three models chained into a reusable pipeline: a CNN that sorts nearly 40,000 scanned images at 92.8% accuracy, a UNet that reaches a PSNR of 30.95 dB versus 27.90 dB for the classical NL-Means method, with no clean reference images, and an attention-based captioning model trained on the 123,000 images of MS COCO.',
       category: 'Deep learning · Computer vision · NLP',
       context: 'Academic project · CESI · team of 4 · late September to October 2026 · fictional client TouNum',
-      cardResult: '92.8% accuracy on 5 classes, +6.3 dB of PSNR for restoration and a BLEU-4 of 0.271 for captioning.',
+      cardResult: '92.8% accuracy on 5 classes, a PSNR of 30.95 dB for restoration (versus 27.90 dB for NL-Means) and a BLEU-4 of 0.350 for captioning.',
       highlights: [
-        'Sorting 41,000 images into 5 classes with a CNN trained from scratch, with a confidence threshold that automates 84% of cases.',
+        'Sorting nearly 40,000 images into 5 classes with a CNN trained from scratch, with a confidence threshold that automates 84% of cases.',
         'Restoring images with no clean reference: realistic synthetic degradation and a UNet tuned with Optuna.',
-        'Automatic captioning (EfficientNetB0, Bahdanau attention, GRU) on MS COCO, wired into a reusable pipeline.',
+        'Automatic captioning (EfficientNetB3, Bahdanau attention, GRU) on MS COCO, wired into a reusable pipeline.',
       ],
       problem:
         'TouNum, a document digitisation company, receives archives of every kind. It wants to keep only the photographs, clean them up, then caption them automatically so they are easy to search. Each deliverable builds one link of that chain: sorting (Deliverable 1), restoration (Deliverable 2) and captioning (Deliverable 3), which reuses the first two models.',
@@ -185,7 +185,7 @@ export const leyendaComputerVision: Project = {
           points: [
             'End-to-end pipeline: every file checked with Pillow, sorted by the Deliverable 1 CNN (116,503 photos kept, 6,784 rejected), then denoised by the Deliverable 2 model (a “blind” residual UNet, about 29 dB at σ = 0.1, which barely alters images that are already clean).',
             'Text preprocessing: lower-casing, removing punctuation, digits, overly short captions and duplicates (582,531 captions kept); a 9,127-word vocabulary built on training data only; a 21-word maximum length covering 99% of captions.',
-            'Feature extraction with a frozen ImageNet-pretrained EfficientNetB0 (49 regions × 1,280 features), chosen over InceptionV3: same BLEU-4 with 4× fewer parameters and features half the size; stored as float16 (14.6 GB) with resumable computation.',
+            'Feature extraction with a frozen ImageNet-pretrained EfficientNetB3, chosen after comparing it with EfficientNetB0 and InceptionV3; features stored as float16 with resumable computation.',
             'Encoder-decoder architecture: CNN encoder (Dense 256), Bahdanau attention choosing which image regions to look at for each word, and a GRU decoder (512 units) preferred to an LSTM for 25% fewer parameters at equal performance. The model has about 9.6 million parameters.',
             'Training with teacher forcing, cross-entropy masked on padding, Adam with gradient clipping, dropout, early stopping restoring the best weights and a checkpoint every epoch (466,025 image-caption pairs).',
             'Implemented beam search (k = 3) and visualised word-by-word attention maps to check where the model looks.',
@@ -203,15 +203,15 @@ export const leyendaComputerVision: Project = {
       results: [
         'Five-class classification: the tuned CNN reached 92.8% test accuracy (95% bootstrap confidence interval from 91.2% to 94.3%) and 90.5% on never-seen images, in a 1.6 MB model.',
         'With an 80% confidence threshold, 84% of images are classified automatically with about 98% accuracy; the rest go to human review.',
-        'Restoration: the tuned UNet adds 6.3 dB of average PSNR over the degraded image and 3 dB over the best classical filter, with 4× fewer parameters than its base version and the fastest inference among the top models; +10 to 12 dB for denoising.',
-        'Captioning: BLEU-1 of 0.689 and BLEU-4 of 0.255 with greedy decoding on the test set; BLEU-4 of 0.271 with beam search, a 1.6-point gain.',
+        'Restoration: the tuned UNet reaches a PSNR of 30.95 dB versus 27.90 dB for the classical NL-Means method, with the fastest inference among the top models (111 ms per megapixel) and 4× fewer parameters than its base version; +10 to 12 dB for denoising.',
+        'Captioning: BLEU-4 of 0.350 on 5,000 test images.',
         'Over 80% of Deliverable 1’s estimated carbon emissions came from the hyperparameter search.',
       ],
       keyFigures: [
         { value: '92.8%', label: '5-class accuracy (95% confidence interval: 91.2 to 94.3)' },
         { value: '84%', label: 'of images classified automatically at ~98% accuracy' },
-        { value: '+6.3 dB', label: 'PSNR gain with a UNet 4× lighter' },
-        { value: '0.271', label: 'BLEU-4 with beam search on MS COCO' },
+        { value: '30.95 dB', label: 'PSNR, versus 27.90 dB for the classical NL-Means method' },
+        { value: '0.350', label: 'BLEU-4 on 5,000 test images' },
       ],
       contribution: [
         'Deliverable 1: prepared the Sketch-class data within the shared preprocessing, then designed and delivered the entire five-class classification: four models, hyperparameter search, evaluation, error analysis and the confidence-threshold decision rule.',
@@ -233,7 +233,7 @@ export const leyendaComputerVision: Project = {
         },
         {
           problem: 'Features for all of COCO meant a huge volume and a long computation, vulnerable to interruptions.',
-          solution: 'EfficientNetB0 rather than InceptionV3 (features half the size), float16 storage and resumable computation.',
+          solution: 'EfficientNetB3, chosen after comparing it with EfficientNetB0 and InceptionV3, float16 storage and resumable computation.',
         },
         {
           problem: 'Models trained under Keras 3 had to be reloaded under TensorFlow 2.10 (GPU on Windows).',
@@ -252,7 +252,7 @@ export const leyendaComputerVision: Project = {
         'The denoiser handles neither impulse noise (salt and pepper) nor heavy blur, and deblurring stays limited (+1 to 3 dB): erased details cannot be recreated exactly.',
       ],
       skills:
-        'Computer vision and deep learning (CNNs, autoencoders, UNet, attention, RNN/GRU), NLP (text cleaning, tokenisation, sequence generation, beam search), transfer learning (EfficientNetB0), image classification on imbalanced data, image restoration, image captioning, hyperparameter tuning (Keras Tuner, Optuna), statistical evaluation (bootstrap, McNemar test, PSNR, SSIM, BLEU), data leakage prevention, large-scale processing (tf.data, memmap, resumable jobs), ML pipeline industrialisation, teamwork and merging work.',
+        'Computer vision and deep learning (CNNs, autoencoders, UNet, attention, RNN/GRU), NLP (text cleaning, tokenisation, sequence generation, beam search), transfer learning (EfficientNetB3), image classification on imbalanced data, image restoration, image captioning, hyperparameter tuning (Keras Tuner, Optuna), statistical evaluation (bootstrap, McNemar test, PSNR, SSIM, BLEU), data leakage prevention, large-scale processing (tf.data, memmap, resumable jobs), ML pipeline industrialisation, teamwork and merging work.',
     },
   },
 };
