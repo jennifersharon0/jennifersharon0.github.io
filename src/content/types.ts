@@ -53,6 +53,21 @@ export interface ProjectLink {
   url: string;
 }
 
+/**
+ * Image d'un projet. Les fichiers sont générés par `npm run images` dans
+ * public/img/projets/<slug>/<name>-<largeur>.(webp|jpg).
+ */
+export interface ProjectFigure {
+  name: string;
+  /** Dimensions de l'image source, pour réserver la place avant chargement. */
+  width: number;
+  height: number;
+  /** Où l'image apparaît : sous les chiffres clés, ou dans la section Résultats. */
+  placement: 'overview' | 'results';
+  alt: Localized<string>;
+  caption: Localized<string>;
+}
+
 export interface Project {
   slug: string;
   year?: string;
@@ -65,5 +80,6 @@ export interface Project {
   links: ProjectLink[];
   /** Visualisation de résultats intégrée à l'étude de cas. */
   chart?: 'mnist-accuracy';
+  figures?: ProjectFigure[];
   content: Localized<ProjectContent>;
 }

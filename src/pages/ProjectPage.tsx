@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router';
 import { AccuracyDotPlot } from '../components/charts/AccuracyDotPlot';
 import { Icon } from '../components/Icon';
 import { projectMeta } from '../components/ProjectCard';
+import { ProjectFigure } from '../components/ProjectFigure';
 import { getProject, projects } from '../content/projects';
 import type { ProjectContent } from '../content/types';
 import { useDocumentMeta } from '../hooks/useDocumentMeta';
@@ -44,6 +45,10 @@ export function ProjectPage() {
   const prev = projects[(index - 1 + projects.length) % projects.length];
   const next = projects[(index + 1) % projects.length];
   const sections = availableSections(c);
+  const figures = (placement: 'overview' | 'results') =>
+    project.figures
+      ?.filter((f) => f.placement === placement)
+      .map((f) => <ProjectFigure key={f.name} slug={project.slug} figure={f} />);
 
   return (
     <article className="case">
@@ -127,6 +132,8 @@ export function ProjectPage() {
             </section>
           )}
 
+          {figures('overview')}
+
           {c.note && (
             <p className="case-note reveal">
               <strong>{t.project.note}{lang === 'fr' ? ' : ' : ': '}</strong>
@@ -175,6 +182,7 @@ export function ProjectPage() {
             <CaseSection id="results" title={t.project.results}>
               <BulletList items={c.results} className="case-results" />
               {project.chart === 'mnist-accuracy' && <AccuracyDotPlot />}
+              {figures('results')}
             </CaseSection>
           )}
 

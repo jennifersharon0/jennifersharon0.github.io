@@ -19,7 +19,7 @@ export const journey: Localized<JourneyContent> = {
     education: [
       {
         period: '2025 – 2027',
-        title: 'Cycle ingénieur, spécialisation Data Science & IA',
+        title: 'Cycle ingénieur Data Science & IA, apprentissage par projets (PBL)',
         org: 'CESI École d’Ingénieurs',
         place: 'Nanterre, France',
       },
@@ -54,7 +54,7 @@ export const journey: Localized<JourneyContent> = {
     education: [
       {
         period: '2025 – 2027',
-        title: 'Engineering degree, Data Science & AI major',
+        title: 'Engineering degree in Data Science & AI, project-based learning (PBL)',
         org: 'CESI School of Engineering',
         place: 'Nanterre, France',
       },

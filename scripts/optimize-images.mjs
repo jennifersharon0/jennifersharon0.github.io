@@ -1,10 +1,10 @@
 /**
  * Génère les images optimisées du site à partir de la photo source
- * (public/img/photo portfolio.png).
+ * (public/img/photo portfolio.png) et des images de projets (PROJECT_IMAGES).
  *
  *   npm run images
  *
- * À relancer uniquement si la photo change.
+ * À relancer uniquement si une image source change.
  * Le CV n'est pas traité ici : le fichier publié est directement public/cv/<nom>.pdf
  * (chemin défini par `cvFile` dans src/content/profile.ts).
  */
@@ -52,5 +52,21 @@ await sharp(ogText)
   .composite([{ input: ogPhoto, left: 600, top: 0 }])
   .jpeg({ quality: 82, mozjpeg: true })
   .toFile('public/img/og-image.jpg');
+
+// Images des projets : sources déposées dans public/img/projets/<slug>/,
+// déclinées en 800 et 1600 px (référencées par `figures` dans src/content/projects/).
+const PROJECT_IMAGES = [
+  { slug: 'datalearn', src: 'datalearn.png', name: 'accueil' },
+  { slug: 'leyenda-computer-vision', src: 'Projet image_Captioning.png', name: 'pipeline-soutenance' },
+];
+
+for (const { slug, src, name } of PROJECT_IMAGES) {
+  const dir = `public/img/projets/${slug}`;
+  for (const width of [800, 1600]) {
+    const img = sharp(`${dir}/${src}`).resize({ width, withoutEnlargement: true });
+    await img.clone().webp({ quality: 82 }).toFile(`${dir}/${name}-${width}.webp`);
+    await img.clone().flatten({ background: '#ffffff' }).jpeg({ quality: 84, mozjpeg: true }).toFile(`${dir}/${name}-${width}.jpg`);
+  }
+}
 
 console.log('Images générées dans public/img/');
