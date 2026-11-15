@@ -55,7 +55,7 @@ export const datalearn: Project = {
         'Base de connaissances construite par un pipeline Python : recherche de sources sur le web, extraction du texte des pages, rédaction par le LLM d’une leçon structurée et d’un quiz de 8 questions à 4 choix.',
         'Contenu stocké dans une base JSON versionnée avec le code.',
         "Données de progression modélisées comme un journal d'événements dans PostgreSQL : chaque leçon ouverte et chaque quiz terminé ajoute une ligne (utilisateur, sujet, type d'événement, score, horodatage).",
-        'Jeu d’évaluation de 96 questions annotées avec la leçon attendue : questions directes, reformulations, questions avec fautes de frappe et questions hors sujet.',
+        'Jeu d’évaluation de 96 questions annotées avec la leçon attendue et un niveau de difficulté : 16 faciles, 27 moyennes, 23 difficiles, 10 avec fautes de frappe et 20 hors sujet.',
       ],
       approach: [
         {
@@ -70,7 +70,7 @@ export const datalearn: Project = {
         {
           title: '2. Évaluation comparative sur un jeu de test annoté',
           points: [
-            'Constitution de 96 questions annotées, chacune associée à la leçon attendue : questions directes, reformulations, fautes de frappe et questions hors sujet.',
+            'Constitution de 96 questions annotées, chacune associée à la leçon attendue et à un niveau de difficulté : 16 questions faciles, 27 moyennes, 23 difficiles, 10 avec des fautes de frappe et 20 hors sujet, dont la moitié proches des thèmes du cours et l’autre moitié éloignées.',
             'Trois approches comparées pour retrouver la bonne leçon (TF-IDF, embeddings, LLM), selon cinq critères mesurés sur le même jeu : précision, détection du hors sujet, robustesse aux fautes de frappe, latence et coût.',
             'LLM : la bonne leçon figure dans ses trois premières propositions pour 100 % des questions, et toutes les questions hors sujet sont détectées, pour un coût de 0,52 $ les 1 000 questions.',
             'Résultat moins attendu : TF-IDF classe mieux les questions que les embeddings, mais s’effondre dès qu’elles contiennent des fautes de frappe ; les embeddings repèrent mieux le hors sujet.',
@@ -146,7 +146,8 @@ export const datalearn: Project = {
             'Tests de sécurité : jetons expirés, signés par une autre clé, prévus pour un autre usage ou modifiés : tous sont refusés.',
             'Tests de bout en bout dont un scénario garantissant qu’un utilisateur ne voit jamais l’activité d’un autre ; tests des vraies requêtes SQL sur une base PostgreSQL de test.',
             'Intégration continue avec GitHub Actions à chaque push, sur une base PostgreSQL éphémère créée puis supprimée à chaque exécution.',
-            'Évaluation de non-régression du LLM : une partie du jeu de test est rejouée avec des seuils minimaux, et l’évaluation échoue si un changement de prompt ou de modèle fait baisser la qualité.',
+            'Évaluation de non-régression du LLM dans un second workflow GitHub Actions, lancé chaque semaine et à la demande : les 96 questions sont reposées au LLM sans réutiliser les anciennes réponses, et l’évaluation échoue si le taux de bonnes réponses en première position passe sous 95 % ou si la détection du hors sujet passe sous 90 %.',
+            'Ce test couvre un risque que pytest ne voit pas : le code peut rester identique alors que les réponses changent, parce que le fournisseur a retiré ou modifié un modèle, comme avec Llama 3.3 70B. Il n’est pas lancé à chaque push, car il dure environ une heure et consomme environ 280 000 tokens du quota partagé avec l’application.',
             'Déploiement de l’API sur Render (avec route de santé) et de l’interface sur Vercel, redéployées à chaque mise à jour du dépôt.',
           ],
         },
@@ -228,7 +229,7 @@ export const datalearn: Project = {
         'Knowledge base built by a Python pipeline: web source search, page text extraction, then an LLM writes a structured lesson and an 8-question, 4-option quiz.',
         'Content stored in a JSON knowledge base versioned alongside the code.',
         'Progress data modelled as an event log in PostgreSQL: every opened lesson and completed quiz appends a row (user, topic, event type, score, timestamp).',
-        'An evaluation set of 96 questions annotated with the expected lesson: direct questions, paraphrases, questions with typos and off-topic questions.',
+        'An evaluation set of 96 questions annotated with the expected lesson and a difficulty level: 16 easy, 27 medium, 23 hard, 10 with typos and 20 off-topic.',
       ],
       approach: [
         {
@@ -243,7 +244,7 @@ export const datalearn: Project = {
         {
           title: '2. Comparative evaluation on an annotated test set',
           points: [
-            'Built 96 annotated questions, each linked to the expected lesson: direct questions, paraphrases, typos and off-topic questions.',
+            'Built 96 annotated questions, each linked to the expected lesson and a difficulty level: 16 easy, 27 medium, 23 hard, 10 with typos and 20 off-topic, half of them close to the course topics and half far from them.',
             'Three approaches compared for finding the right lesson (TF-IDF, embeddings, LLM) on five criteria measured on the same set: accuracy, off-topic detection, robustness to typos, latency and cost.',
             'The LLM puts the right lesson in its top three suggestions for 100% of questions and detects every off-topic question, at a cost of $0.52 per 1,000 questions.',
             'A less expected result: TF-IDF ranks questions better than embeddings but collapses as soon as they contain typos, while embeddings are better at spotting off-topic questions.',
@@ -319,7 +320,8 @@ export const datalearn: Project = {
             'Security tests: expired tokens, tokens signed by another key, issued for another audience or tampered with to impersonate another user are all rejected.',
             "End-to-end API tests, including one ensuring a user never sees another user's activity, and tests of the real SQL queries against a test PostgreSQL database.",
             'Continuous integration with GitHub Actions on every push, against a throwaway PostgreSQL database created and deleted for each run.',
-            'LLM regression evaluation: part of the test set is replayed against minimum thresholds, and the check fails if a prompt or model change lowers quality.',
+            'LLM regression evaluation in a second GitHub Actions workflow, run weekly and on demand: the 96 questions are sent to the LLM again without reusing earlier answers, and the check fails if the share of correct first-ranked answers drops below 95% or off-topic detection drops below 90%.',
+            'This test covers a risk pytest cannot see: the code can stay the same while the answers change, because the provider retired or modified a model, as happened with Llama 3.3 70B. It does not run on every push, since it takes about an hour and uses about 280,000 tokens from the quota shared with the app.',
             'API deployed on Render (with a health-check route) and front end on Vercel, both redeployed on every push.',
           ],
         },
