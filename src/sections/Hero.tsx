@@ -36,7 +36,7 @@ export function Hero() {
               {t.hero.seeProjects}
               <Icon name="arrowRight" />
             </Link>
-            <a className="btn btn-ghost" href={asset(profile.cvFile)} download>
+            <a className="btn btn-ghost" href={asset(profile.cvFile[lang])} download>
               <Icon name="download" />
               {t.hero.downloadCv}
             </a>

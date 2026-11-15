@@ -54,7 +54,7 @@ export function Header() {
               </li>
             ))}
           </ul>
-          <a className="btn btn-primary nav-cv-mobile" href={asset(profile.cvFile)} download>
+          <a className="btn btn-primary nav-cv-mobile" href={asset(profile.cvFile[lang])} download>
             <Icon name="download" />
             {t.hero.downloadCv}
           </a>
@@ -63,7 +63,7 @@ export function Header() {
         <div className="header-actions">
           <LangSwitch />
           <ThemeToggle />
-          <a className="btn btn-ghost header-cv" href={asset(profile.cvFile)} download>
+          <a className="btn btn-ghost header-cv" href={asset(profile.cvFile[lang])} download>
             <Icon name="download" />
             {t.nav.cv}
           </a>

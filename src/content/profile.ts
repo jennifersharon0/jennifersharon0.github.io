@@ -13,8 +13,11 @@ export const profile = {
   linkedinLabel: 'linkedin.com/in/jennifer-laura-ouedraogo',
   /** URL complète (avec https://) — sinon le lien serait traité comme une page interne du site. */
   github: 'https://github.com/jennifersharon0',
-  /** Fichier publié dans public/ ; pour changer de CV, déposer le PDF dans public/cv/ et mettre à jour ce chemin. */
-  cvFile: 'cv/CV_Jennifer_OUEDRAOGO_Data_Science.pdf',
+  /** Fichiers publiés dans public/ ; pour changer de CV, déposer le PDF dans public/cv/ et mettre à jour ce chemin. */
+  cvFile: {
+    fr: 'cv/CV_Jennifer_OUEDRAOGO_Data_Science.pdf',
+    en: 'cv/CV_Jennifer_OUEDRAOGO_Data_Science_EN.pdf',
+  } satisfies Localized<string>,
   location: 'France',
 };
 

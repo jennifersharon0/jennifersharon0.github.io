@@ -6,7 +6,7 @@ import { SocialLinks } from './SocialLinks';
 import './Footer.css';
 
 export function Footer() {
-  const { t } = useLang();
+  const { lang, t } = useLang();
   return (
     <footer className="site-footer">
       <div className="container footer-inner">
@@ -21,7 +21,7 @@ export function Footer() {
         </div>
         <div className="footer-actions">
           <SocialLinks />
-          <a className="icon-btn" href={asset(profile.cvFile)} download aria-label={t.contact.cv} title={t.contact.cv}>
+          <a className="icon-btn" href={asset(profile.cvFile[lang])} download aria-label={t.contact.cv} title={t.contact.cv}>
             <Icon name="download" />
           </a>
           <a className="icon-btn" href="#top" aria-label={t.footer.backToTop} title={t.footer.backToTop}>

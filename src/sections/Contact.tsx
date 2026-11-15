@@ -13,7 +13,7 @@ type CopyState = 'idle' | 'copied' | 'failed';
  * ouvre directement la messagerie du visiteur.
  */
 export function Contact({ index }: { index: number }) {
-  const { t } = useLang();
+  const { lang, t } = useLang();
   const [copy, setCopy] = useState<CopyState>('idle');
 
   async function copyEmail() {
@@ -78,7 +78,7 @@ export function Contact({ index }: { index: number }) {
               </li>
             )}
             <li>
-              <a className="contact-link card" href={asset(profile.cvFile)} download>
+              <a className="contact-link card" href={asset(profile.cvFile[lang])} download>
                 <Icon name="download" />
                 <span>
                   <span className="contact-link-label">{t.contact.cv}</span>
