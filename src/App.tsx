@@ -18,7 +18,7 @@ import { Header } from './components/Header';
 import { ScrollManager } from './components/ScrollManager';
 import { useReveal } from './hooks/useReveal';
 import { useLang } from './i18n/useLang';
-import { countPageView, trackCvDownloads } from './lib/analytics';
+import { countPageView, handleOptOutLink, trackCvDownloads } from './lib/analytics';
 import { storage } from './lib/storage';
 import { Home } from './pages/Home';
 import { NotFound } from './pages/NotFound';
@@ -40,6 +40,8 @@ function useRememberedLanguage() {
 
 /** Statistiques de visite : une page vue par changement d'adresse, plus les téléchargements du CV. */
 function useAnalytics(pathname: string) {
+  // Avant le premier comptage : le lien #toggle-goatcounter doit être traité avant le chargement de count.js.
+  useEffect(() => handleOptOutLink(), []);
   useEffect(() => trackCvDownloads(), []);
   // Le titre de la page est mis à jour par useDocumentMeta dans le même cycle de rendu.
   useEffect(() => countPageView(pathname), [pathname]);

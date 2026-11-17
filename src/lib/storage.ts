@@ -14,4 +14,11 @@ export const storage = {
       /* stockage indisponible : la préférence ne sera simplement pas mémorisée */
     }
   },
+  remove(key: string): void {
+    try {
+      window.localStorage.removeItem(key);
+    } catch {
+      /* stockage indisponible */
+    }
+  },
 };
