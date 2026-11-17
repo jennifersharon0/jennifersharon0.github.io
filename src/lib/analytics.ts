@@ -23,9 +23,27 @@ declare global {
   }
 }
 
-type Hit = { path: string; title?: string; event?: boolean };
+type Hit = { path: string; title?: string; event?: boolean; referrer?: string };
 const pending: Hit[] = [];
 let loading = false;
+
+/**
+ * Provenance déclarée par un lien marqué (?ref=cv, ?ref=linkedin…), lue dès l'arrivée
+ * (avant une éventuelle redirection vers /en/). Utile quand le navigateur ne transmet
+ * pas la provenance : application LinkedIn, messageries, lien ouvert depuis un PDF.
+ */
+let campaign: string | null = null;
+if (typeof window !== 'undefined') {
+  const params = new URLSearchParams(location.search);
+  campaign = params.get('ref') || params.get('utm_source');
+  if (campaign) {
+    // L'adresse affichée et partagée reste propre.
+    params.delete('ref');
+    params.delete('utm_source');
+    const query = params.toString();
+    history.replaceState(history.state, '', location.pathname + (query ? `?${query}` : '') + location.hash);
+  }
+}
 
 function send(hit: Hit) {
   const count = window.goatcounter?.count;
@@ -49,7 +67,13 @@ function send(hit: Hit) {
 export function countPageView(path: string) {
   if (!import.meta.env.PROD) return;
   // Même adresse avec ou sans « / » final (arrivée directe ou navigation interne) : une seule ligne dans les statistiques.
-  send({ path: path.length > 1 ? path.replace(/\/+$/, '') : path, title: document.title });
+  const hit: Hit = { path: path.length > 1 ? path.replace(/\/+$/, '') : path, title: document.title };
+  // Seule la page d'arrivée porte la provenance du lien marqué.
+  if (campaign) {
+    hit.referrer = campaign;
+    campaign = null;
+  }
+  send(hit);
 }
 
 /**
