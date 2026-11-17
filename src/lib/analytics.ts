@@ -46,7 +46,8 @@ function send(hit: Hit) {
 
 export function countPageView(path: string) {
   if (!import.meta.env.PROD) return;
-  send({ path, title: document.title });
+  // Même adresse avec ou sans « / » final (arrivée directe ou navigation interne) : une seule ligne dans les statistiques.
+  send({ path: path.length > 1 ? path.replace(/\/+$/, '') : path, title: document.title });
 }
 
 /** Compte les clics sur les liens de téléchargement du CV (un événement par langue). */
